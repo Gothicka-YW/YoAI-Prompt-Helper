@@ -13,19 +13,20 @@
 <header class="header">
 <div class="brand">
 <span class="dot"></span>
-<h1>YoPrompt Creator</h1>
+<h1>YoAI Prompt Creator</h1>
 </div>
 </header>
 <nav class="tabs">
-<button class="tab-button active" data-tab="presets">AI Presets</button>
-<button class="tab-button" data-tab="prompt">Prompt Creator</button>
-<button class="tab-button" data-tab="background">BG Creator</button>
-<button class="tab-button" data-tab="resources">Resources</button>
+ <button class="tab-button active" data-tab="presets">Avi Presets</button>
+ <button class="tab-button" data-tab="background">BG Presets</button>
+ <button class="tab-button" data-tab="prompt">Creator</button>
+ <button class="tab-button" data-tab="mypresets">My Presets</button>
+ <button class="tab-button" data-tab="resources">Resources</button>
 </nav>
 <main class="content">
 <!-- Tab 1: AI Presets -->
 <section class="tab-content active" id="presets">
-<h2>AI Presets</h2>
+ <h2>Avi Presets</h2>
 <div class="field">
 <label class="label" for="preset-select">Choose a preset</label>
 <select class="select" id="preset-select"><option value="">Select…</option><option value="3d">3D Illustration</option><option value="bratz">Bratz Doll</option><option value="male">Retain Male Features; Semi-real</option><option value="gothic">Gothic Cartoon</option><option value="glam">Glam Cartoon</option><option value="fashion">High Fashion</option><option value="cyberpunk">Sci-Fi — Cyberpunk</option><option value="futuristic">Sci-Fi — Futuristic</option><option value="elven">Elven Fantasy</option><option value="rustic">Rustic Bohemian</option></select>
@@ -34,14 +35,15 @@
 <label class="label">Output prompt (copy into your AI)</label>
 <textarea class="output" id="preset-output" placeholder="Selecting a preset will populate a detailed prompt here…" readonly="" rows="16"></textarea>
 </div>
-<div class="actions">
-	<button class="primary" disabled="" id="copy-preset">Copy Preset Prompt</button>
-		<span id="copy-preset-feedback" class="copy-feedback"></span>
+<div class="actions" style="display:flex;align-items:center;">
+  <button class="primary" disabled id="copy-preset">Copy Preset Prompt</button>
+  <button class="ghost" id="import-avatar-preset" style="margin-left:auto;">Import from My Presets</button>
+  <span id="copy-preset-feedback" class="copy-feedback"></span>
 </div>
 </section>
-<!-- Tab 2: Prompt Creator (full controls restored) -->
+<!-- Tab 2: Creator (full controls restored) -->
 <section class="tab-content" id="prompt">
-<h2>Prompt Creator</h2>
+<h2>Creator</h2>
 <div class="field">
 <label class="label" for="pc-art-style">Art Style</label>
 <select class="select" id="pc-art-style">
@@ -180,9 +182,10 @@
 </div>
 <textarea class="output" id="output" placeholder="Your assembled prompt will appear here…" readonly rows="8"></textarea>
 </section>
-<!-- Tab 3: BG Creator -->
+<!-- Tab 3: BG Presets -->
 <section class="tab-content" id="background">
-<h2>BG Creator</h2><div class="field"><label class="label">Choose a background preset</label><select class="select" id="bg-select"><option value="">Select…</option><option value="fantasy_forest">Fantasy Forest Clearing</option><option value="gothic_castle">Gothic Castle Interior</option><option value="runway">High Fashion Runway</option><option value="barn_loft">Rustic Barn Loft</option><option value="neon_city">Sci-Fi Neon City</option><option value="space_hub">Futuristic Space Hub</option><option value="elven_glade">Elven Forest Glade</option><option value="club_lounge">Cartoon Club Lounge</option><option value="magic_library">Magic Academy Library</option><option value="ballroom">Royal Ballroom</option><option value="new_years">New Years Celebration</option><option value="fourth_july">4th of July Fireworks</option><option value="halloween">Halloween Night</option><option value="thanksgiving">Thanksgiving Harvest</option><option value="christmas">Christmas Celebration</option><option value="birthday">Birthday Party</option></select></div><textarea class="output" id="bg-output" placeholder="Background preset description will appear here…" readonly="" rows="10"></textarea><div class="actions"><button class="btn ghost" disabled="" id="bg-copy">Copy</button></div>
+<h2>BG Presets</h2>
+<div class="field"><label class="label">Choose a background preset</label><select class="select" id="bg-select"><option value="">Select…</option><option value="fantasy_forest">Fantasy Forest Clearing</option><option value="gothic_castle">Gothic Castle Interior</option><option value="runway">High Fashion Runway</option><option value="barn_loft">Rustic Barn Loft</option><option value="neon_city">Sci-Fi Neon City</option><option value="space_hub">Futuristic Space Hub</option><option value="elven_glade">Elven Forest Glade</option><option value="club_lounge">Cartoon Club Lounge</option><option value="magic_library">Magic Academy Library</option><option value="ballroom">Royal Ballroom</option><option value="new_years">New Years Celebration</option><option value="fourth_july">4th of July Fireworks</option><option value="halloween">Halloween Night</option><option value="thanksgiving">Thanksgiving Harvest</option><option value="christmas">Christmas Celebration</option><option value="birthday">Birthday Party</option></select></div><textarea class="output" id="bg-output" placeholder="Background preset description will appear here…" readonly="" rows="10"></textarea><div class="actions" style="display:flex;align-items:center;"><button class="btn ghost" disabled id="bg-copy">Copy Preset Prompt</button><button class="ghost" id="import-bg-preset" style="margin-left:auto;">Import from My Presets</button></div>
 <p class="muted"></p>
 </section>
 <!-- Tab 4: Resources -->
@@ -210,6 +213,33 @@
 <p class="muted"></p>
 </section>
 </main>
+<!-- Tab 5: My Presets -->
+<section class="tab-content" id="mypresets">
+  <h2>My Presets</h2>
+  <form id="mypreset-form">
+    <div class="field">
+      <label class="label" for="mypreset-title">Preset Title</label>
+      <input class="input" id="mypreset-title" type="text" maxlength="40" required placeholder="Enter preset title" />
+    </div>
+    <div class="field">
+      <label class="label" for="mypreset-type">Type</label>
+      <select class="select" id="mypreset-type">
+        <option value="avatar">Avatar</option>
+        <option value="bg">BG</option>
+      </select>
+    </div>
+    <div class="field">
+      <label class="label" for="mypreset-output">Output Prompt</label>
+      <textarea class="output" id="mypreset-output" rows="6" required placeholder="Enter output prompt"></textarea>
+    </div>
+    <div class="actions">
+      <button class="primary" type="submit" id="save-mypreset">Save Preset</button>
+      <button class="ghost" type="reset">Clear</button>
+    </div>
+  </form>
+  <h3>Saved Presets</h3>
+  <ul id="mypreset-list" class="resource-list"></ul>
+</section>
 <footer class="footer"><span>YoPrompt Creator v0.6.3</span><span>Community Edition — Created by Gothicka</span></footer>
 </div>
 <script src="popup.js"></script>

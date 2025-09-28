@@ -1,3 +1,34 @@
+/* Remove extra space/box above My Presets content */
+#mypresets {
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+.tab-content#mypresets {
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+  padding-top: 0 !important;
+}
+.content:has(#mypresets.tab-content.active) {
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+#mypresets h2 {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+/* Fix My Presets tab top spacing */
+#mypresets {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+.tab-content, .tab-content.active {
+  min-height: 0 !important;
+  height: auto !important;
+  padding-top: 0 !important;
+}
 .copy-feedback {
   color: #ffe066;
   font-weight: bold;
@@ -48,11 +79,22 @@ h2{
 .dot{width:8px;height:8px;border-radius:999px;background:var(--accent)}
 .tabs{display:flex;gap:6px;padding:8px 10px 0 10px}
 .tab-button{
-  flex:1;padding:6px 8px;background:var(--bgSoft);
-  border:1px solid  rgba(192,192,192,0.6);border-radius:14px 14px 0 0;
-  cursor:pointer;transition:all .18s ease;
-  font-family:'Metamorphous',cursive;font-size:16px;letter-spacing:.02em;color:var(--accent);
-  text-align:center;
+  flex:1 1 0%;
+  min-width: 0;
+  padding: 4px 4px;
+  background: var(--bgSoft);
+  border: 1px solid rgba(192,192,192,0.6);
+  border-radius: 12px 12px 0 0;
+  cursor: pointer;
+  transition: all .18s ease;
+  font-family: 'Metamorphous', cursive;
+  font-size: 11.5px;
+  letter-spacing: .01em;
+  color: var(--accent);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .tab-button:hover{filter:brightness(1.08)}
 .tab-button.active{
@@ -72,29 +114,40 @@ h2{
 .field{margin-bottom:10px}
 .radio-group,.check-group{display:flex;flex-direction:column;gap:6px}
 .inline{font-size:12px}
-.actions{display:flex;gap:8px;margin:10px 0}
+.actions{display:flex;gap:4px;margin:10px 0;flex-wrap:wrap;justify-content:flex-start;align-items:center;max-width:100%;overflow:hidden;}
 
-.primary,.ghost{
-  padding:10px 12px;
-  border-radius:12px;
-  cursor:pointer;
-  text-decoration:none;
-  display:inline-block;
+/* Smaller action buttons for Prompt Creator tab */
+.primary, .ghost {
+  font-family: 'Metamorphous', 'Staatliches', 'Arial', sans-serif;
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  min-width: 0;
+  min-height: 0;
+  height: 28px;
+  box-sizing: border-box;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.primary{
-  background:var(--accent);
-  color:#1d1a12;
-  border:1px solid  rgba(192,192,192,0.6);
-  font-weight:600;
+.primary {
+  background: var(--accent);
+  color: #1d1a12;
+  border: 1px solid rgba(192,192,192,0.6);
+  font-weight: 600;
 }
-.ghost{
-  background:transparent;
-  color:var(--text);
-  border:1px solid  rgba(192,192,192,0.6);
+.ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(192,192,192,0.6);
 }
-.ghost:disabled, .ghost[disabled]{
-  cursor:not-allowed;
-  opacity:0.6;
+.ghost:disabled, .ghost[disabled] {
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 .output{
   width:100%;min-height:150px;max-height:320px;resize:vertical;

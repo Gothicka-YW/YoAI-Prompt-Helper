@@ -180,6 +180,132 @@ const BG_PRESETS = {
 };
 
 document.addEventListener('DOMContentLoaded', function() {
+  // --- My Presets Logic ---
+  const myPresetForm = document.getElementById('mypreset-form');
+  const myPresetList = document.getElementById('mypreset-list');
+  let editingPresetId = null;
+
+  // Utility: get all presets from chrome.storage.sync
+  function getAllMyPresets(cb) {
+    if (!chrome?.storage?.sync) return cb([]);
+    chrome.storage.sync.get(['yoprompt_mypresets'], (res) => {
+      cb(Array.isArray(res.yoprompt_mypresets) ? res.yoprompt_mypresets : []);
+    });
+  }
+  // Utility: save all presets
+  function saveAllMyPresets(presets, cb) {
+    if (!chrome?.storage?.sync) return;
+    chrome.storage.sync.set({yoprompt_mypresets: presets}, cb);
+  }
+  // Render list
+  function renderMyPresets() {
+    getAllMyPresets((presets) => {
+      myPresetList.innerHTML = '';
+      if (!presets.length) {
+        myPresetList.innerHTML = '<li class="muted">No saved presets yet.</li>';
+        return;
+      }
+      presets.forEach((preset, idx) => {
+        const li = document.createElement('li');
+        li.innerHTML = `<b>${preset.title}</b> <span class="muted">[${preset.type === 'avatar' ? 'Avatar' : 'BG'}]</span><br><span style="font-size:11px;">${preset.output.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</span><br>
+          <button class="ghost" data-edit="${idx}">Edit</button>
+          <button class="ghost" data-delete="${idx}">Delete</button>`;
+        myPresetList.appendChild(li);
+      });
+    });
+  }
+  // Save handler
+  if (myPresetForm) {
+    myPresetForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const title = document.getElementById('mypreset-title').value.trim();
+      const type = document.getElementById('mypreset-type').value;
+      const output = document.getElementById('mypreset-output').value.trim();
+      if (!title || !output) return;
+      getAllMyPresets((presets) => {
+        if (editingPresetId !== null) {
+          presets[editingPresetId] = {title, type, output};
+          editingPresetId = null;
+        } else {
+          presets.push({title, type, output});
+        }
+        saveAllMyPresets(presets, renderMyPresets);
+        myPresetForm.reset();
+      });
+    });
+    myPresetForm.addEventListener('reset', function() { editingPresetId = null; });
+  }
+  // Edit/Delete handlers
+  if (myPresetList) {
+    myPresetList.addEventListener('click', function(e) {
+      if (e.target.dataset.edit) {
+        getAllMyPresets((presets) => {
+          const p = presets[e.target.dataset.edit];
+          document.getElementById('mypreset-title').value = p.title;
+          document.getElementById('mypreset-type').value = p.type;
+          document.getElementById('mypreset-output').value = p.output;
+          editingPresetId = Number(e.target.dataset.edit);
+        });
+      } else if (e.target.dataset.delete) {
+        getAllMyPresets((presets) => {
+          presets.splice(e.target.dataset.delete, 1);
+          saveAllMyPresets(presets, renderMyPresets);
+        });
+      }
+    });
+  }
+  renderMyPresets();
+
+  // Import to Avatar Presets
+  const importAvatarBtn = document.getElementById('import-avatar-preset');
+  if (importAvatarBtn) {
+    importAvatarBtn.addEventListener('click', () => {
+      getAllMyPresets((presets) => {
+        const avatarPresets = presets.filter(p => p.type === 'avatar');
+        if (!avatarPresets.length) return alert('No Avatar presets saved.');
+        const pick = prompt('Enter the number to import:\n' + avatarPresets.map((p,i)=>`${i+1}. ${p.title}`).join('\n'));
+        const idx = Number(pick)-1;
+        if (avatarPresets[idx]) {
+          // Add to PRESETS and update dropdown
+          PRESETS[avatarPresets[idx].title.toLowerCase().replace(/\s+/g,'_')] = avatarPresets[idx].output;
+          const presetSelect = document.getElementById('preset-select');
+          if (presetSelect) {
+            const opt = document.createElement('option');
+            opt.value = avatarPresets[idx].title.toLowerCase().replace(/\s+/g,'_');
+            opt.textContent = avatarPresets[idx].title;
+            presetSelect.appendChild(opt);
+            presetSelect.value = opt.value;
+            presetSelect.dispatchEvent(new Event('change'));
+          }
+        }
+      });
+    });
+  }
+  // Import to BG Presets
+  const importBgBtn = document.getElementById('import-bg-preset');
+  if (importBgBtn) {
+    importBgBtn.addEventListener('click', () => {
+      getAllMyPresets((presets) => {
+        const bgPresets = presets.filter(p => p.type === 'bg');
+        if (!bgPresets.length) return alert('No BG presets saved.');
+        const pick = prompt('Enter the number to import:\n' + bgPresets.map((p,i)=>`${i+1}. ${p.title}`).join('\n'));
+        const idx = Number(pick)-1;
+        if (bgPresets[idx]) {
+          // Add to BG_PRESETS and update dropdown
+          BG_PRESETS[bgPresets[idx].title.toLowerCase().replace(/\s+/g,'_')] = bgPresets[idx].output;
+          const bgSelect = document.getElementById('bg-select');
+          if (bgSelect) {
+            const opt = document.createElement('option');
+            opt.value = bgPresets[idx].title.toLowerCase().replace(/\s+/g,'_');
+            opt.textContent = bgPresets[idx].title;
+            bgSelect.appendChild(opt);
+            bgSelect.value = opt.value;
+            bgSelect.dispatchEvent(new Event('change'));
+          }
+        }
+      });
+    });
+  }
   // --- Prompt Creator Randomizer, Save, Load ---
   function getPromptFields() {
     return {
@@ -310,13 +436,21 @@ document.addEventListener('DOMContentLoaded', function() {
       setTimeout(() => { loadBtn.textContent = 'Load Settings'; }, 1200);
     }
   });
-  // Tab switching
+  // Tab switching with My Presets height fix
   document.querySelectorAll('.tab-button').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
       document.querySelectorAll('.tab-content').forEach(s => s.classList.remove('active'));
       btn.classList.add('active');
-      document.getElementById(btn.dataset.tab).classList.add('active');
+      const tabId = btn.dataset.tab;
+      document.getElementById(tabId).classList.add('active');
+      // Height fix for My Presets
+      const content = document.querySelector('.content');
+      if (tabId === 'mypresets') {
+        content.classList.add('mypresets-active');
+      } else {
+        content.classList.remove('mypresets-active');
+      }
     });
   });
 

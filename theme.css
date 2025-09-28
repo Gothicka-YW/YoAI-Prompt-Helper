@@ -1,3 +1,7 @@
+#mypresets {
+  height: auto !important;
+  max-height: none !important;
+}
 :root{
   --bg:#1a1a1a; --bgSoft:#222222; --panel:#111111;
   --accent:#c0c0c0; --text:#c0c0c0; --textDim:#aaaaaa; --border:#6e6e6e;
@@ -13,8 +17,8 @@ body{background:var(--bg);color:var(--text)}
 
 /* Prevent layout shift between tabs */
 .popup-frame{max-height: 560px;}
-.content{display:block; max-height: 420px; overflow: hidden; padding:12px;}
-.tab-content{display:none; overflow-y:auto; max-height: 396px; padding-right:6px;}
+.content{display:block; padding:12px;}
+.tab-content{display:none; overflow-y:auto; padding-right:6px;}
 .tab-content.active{display:block;}
 /* thin scrollbar */
 .tab-content::-webkit-scrollbar{width:8px}
