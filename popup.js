@@ -68,6 +68,15 @@ const PRESETS = {
 - Preserve the avatar’s proportions, pose, and recognizable features.
 - Include full body, head-to-toe, with shoes visible: extend canvas if needed to avoid cropping.
 - Transparent background, no extra objects.`,
+  "dr_suess": `- Transform this avatar into a chaotic, surreal Dr. Seuss–inspired character.
+- Stretch and bend proportions in playful, exaggerated ways — tall, twisting forms or oddly rounded shapes.
+- Use wild, vibrant color combinations with bold stripes, zigzags, and mismatched patterns.
+- Preserve the avatar’s recognizable features, but stylize them with surreal, whimsical distortions.
+- Render hair, clothing, and accessories with curvy, flowing, almost gravity-defying designs.
+- Lengthen the legs while keeping proportions whimsical and surreal.
+- Ensure accuracy of handheld items, hats, jewelry, and accessories, but twist them into quirky, Seussian forms.
+- Include full body, head-to-toe, with shoes visible: extend canvas if needed to avoid cropping.
+- Transparent background, no extra scenery.`,
   "elven": `- Transform this avatar into an elven fantasy illustrated cartoon character: elegant, ethereal styling with natural, flowing lines.
 - Emphasize delicate features, fine hair detail, and fantasy-inspired attire.
 - Preserve the avatar’s proportions, pose, and recognizable features.
@@ -561,6 +570,22 @@ document.addEventListener('DOMContentLoaded', function() {
   const copyPresetBtn = document.getElementById('copy-preset');
   const presetFeedback = document.getElementById('copy-preset-feedback');
   if (presetSelect && presetOut && copyPresetBtn) {
+    // Clear existing options except the first (placeholder)
+    Array.from(presetSelect.options).forEach((opt, idx) => {
+      if (idx > 0) presetSelect.removeChild(opt);
+    });
+    // Add options alphabetically
+    Object.keys(PRESETS).sort().forEach(key => {
+      const opt = document.createElement('option');
+      opt.value = key;
+      // Display label: capitalize and replace underscores with spaces, special case for Dr. Suess
+      if (key === 'dr_suess') {
+        opt.textContent = 'Dr. Suess';
+      } else {
+        opt.textContent = key.charAt(0).toUpperCase() + key.slice(1).replace(/_/g, ' ');
+      }
+      presetSelect.appendChild(opt);
+    });
     presetSelect.addEventListener('change', () => {
       const label = presetSelect.value;
       const text = PRESETS[label] || '';
