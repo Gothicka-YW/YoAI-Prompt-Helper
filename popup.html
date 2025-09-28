@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="utf-8"/>
-<title>YoPrompt Creator</title>
+<title>YoAI Prompt Helper</title>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&amp;family=Metamorphous&amp;display=swap" rel="stylesheet"/>
 <link href="popup.css" rel="stylesheet"/><link href="theme.css" rel="stylesheet"/>
@@ -13,7 +13,7 @@
 <header class="header">
 <div class="brand">
 <span class="dot"></span>
-<h1>YoAI Prompt Creator</h1>
+<h1>YoAI Prompt Helper</h1>
 </div>
 </header>
 <nav class="tabs">
@@ -210,37 +210,38 @@
 </div>
 <div class="coffee-wrap"><a class="btn coffee" href="https://buymeacoffee.com/ywpaint" rel="noopener noreferrer" target="_blank">Buy Me a Coffee</a></div>
 <div class="bug-report"><a href="#" id="copy-bug-email-link">Report Bugs (copy email)</a><div class="muted" id="copy-bug-note"></div></div>
+<div id="toast" style="display:none;position:fixed;left:50%;bottom:32px;transform:translateX(-50%);background:#222;padding:12px 24px;border-radius:12px;color:#fff;font-size:14px;z-index:9999;box-shadow:0 2px 12px rgba(0,0,0,0.18);">Copied bug report email!</div>
 <p class="muted"></p>
 </section>
+  <!-- Tab 5: My Presets -->
+  <section class="tab-content" id="mypresets">
+    <h2>My Presets</h2>
+    <form id="mypreset-form">
+      <div class="field">
+        <label class="label" for="mypreset-title">Preset Title</label>
+        <input class="input" id="mypreset-title" type="text" maxlength="40" required placeholder="Enter preset title" />
+      </div>
+      <div class="field">
+        <label class="label" for="mypreset-type">Type</label>
+        <select class="select" id="mypreset-type">
+          <option value="avatar">Avatar</option>
+          <option value="bg">BG</option>
+        </select>
+      </div>
+      <div class="field">
+        <label class="label" for="mypreset-output">Output Prompt</label>
+        <textarea class="output" id="mypreset-output" rows="6" required placeholder="Enter output prompt"></textarea>
+      </div>
+      <div class="actions">
+        <button class="primary" type="submit" id="save-mypreset">Save Preset</button>
+        <button class="ghost" type="reset">Clear</button>
+      </div>
+    </form>
+    <h3>Saved Presets</h3>
+    <ul id="mypreset-list" class="resource-list"></ul>
+  </section>
 </main>
-<!-- Tab 5: My Presets -->
-<section class="tab-content" id="mypresets">
-  <h2>My Presets</h2>
-  <form id="mypreset-form">
-    <div class="field">
-      <label class="label" for="mypreset-title">Preset Title</label>
-      <input class="input" id="mypreset-title" type="text" maxlength="40" required placeholder="Enter preset title" />
-    </div>
-    <div class="field">
-      <label class="label" for="mypreset-type">Type</label>
-      <select class="select" id="mypreset-type">
-        <option value="avatar">Avatar</option>
-        <option value="bg">BG</option>
-      </select>
-    </div>
-    <div class="field">
-      <label class="label" for="mypreset-output">Output Prompt</label>
-      <textarea class="output" id="mypreset-output" rows="6" required placeholder="Enter output prompt"></textarea>
-    </div>
-    <div class="actions">
-      <button class="primary" type="submit" id="save-mypreset">Save Preset</button>
-      <button class="ghost" type="reset">Clear</button>
-    </div>
-  </form>
-  <h3>Saved Presets</h3>
-  <ul id="mypreset-list" class="resource-list"></ul>
-</section>
-<footer class="footer"><span>YoPrompt Creator v0.6.3</span><span>Community Edition — Created by Gothicka</span></footer>
+<footer class="footer"><span>YoAI Prompt Helper v1.0</span><span>Community Edition — Created by Gothicka</span></footer>
 </div>
 <script src="popup.js"></script>
 </body>

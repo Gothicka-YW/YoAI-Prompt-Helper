@@ -1,20 +1,11 @@
-/* Remove extra space/box above My Presets content */
+.content, .tab-content {
+  scrollbar-gutter: stable both-edges;
+}
 #mypresets {
-  height: auto !important;
-  max-height: none !important;
-  overflow: visible !important;
+  padding-left: 12px !important;
+  padding-right: 12px !important;
 }
-.tab-content#mypresets {
-  height: auto !important;
-  max-height: none !important;
-  overflow: visible !important;
-  padding-top: 0 !important;
-}
-.content:has(#mypresets.tab-content.active) {
-  height: auto !important;
-  max-height: none !important;
-  overflow: visible !important;
-}
+/* Remove extra space/box above My Presets content */
 #mypresets h2 {
   margin-top: 0 !important;
   padding-top: 0 !important;
@@ -27,6 +18,10 @@
 .tab-content, .tab-content.active {
   min-height: 0 !important;
   height: auto !important;
+  padding-top: 0 !important;
+}
+#mypresets h2, #mypresets .tab-title, #mypresets .section-title {
+  margin-top: 0 !important;
   padding-top: 0 !important;
 }
 .copy-feedback {
@@ -103,9 +98,21 @@ h2{
   border-color:var(--accent);
   box-shadow:0 6px 18px rgba(192,192,192,0.25);
 }
-.content{padding:12px;background:var(--panel);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.tab-content{display:none}
-.tab-content.active{display:block}
+.content{
+  padding:12px;
+  background:var(--panel);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  overflow: hidden;
+}
+.tab-content {
+  display: none;
+  overflow-y: auto;
+  max-height: 380px;
+}
+.tab-content.active {
+  display: block;
+}
 .label{font-size:12px;color:var(--textDim);display:block;margin-bottom:6px}
 .select,.input{
   width:100%;padding:10px 12px;border-radius:14px;border:1px solid  rgba(192,192,192,0.6);

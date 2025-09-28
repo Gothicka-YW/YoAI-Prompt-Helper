@@ -180,6 +180,107 @@ const BG_PRESETS = {
 };
 
 document.addEventListener('DOMContentLoaded', function() {
+  // Toast helper
+  function showToast(msg) {
+    const toast = document.getElementById('toast');
+    if (!toast) return;
+    toast.textContent = msg;
+    toast.style.display = 'block';
+    setTimeout(() => { toast.style.display = 'none'; }, 1800);
+  }
+
+  // Bug report email copy
+  const bugEmail = 'ywa.paint@gmail.com';
+  const bugLink = document.getElementById('copy-bug-email-link');
+  if (bugLink) {
+    bugLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      navigator.clipboard.writeText(bugEmail).then(() => {
+        showToast('Copied bug report email!');
+      });
+    });
+  }
+  // --- Tab State Persistence ---
+  const tabButtons = document.querySelectorAll('.tab-button');
+  const tabContents = document.querySelectorAll('.tab-content');
+  // Restore last tab
+  const lastTab = localStorage.getItem('yoprompt_last_tab');
+  if (lastTab) {
+    tabButtons.forEach(btn => btn.classList.remove('active'));
+    tabContents.forEach(tab => tab.classList.remove('active'));
+    const btn = document.querySelector(`.tab-button[data-tab="${lastTab}"]`);
+    const tab = document.getElementById(lastTab);
+    if (btn && tab) {
+      btn.classList.add('active');
+      tab.classList.add('active');
+    }
+  }
+  // Tab click handler
+  tabButtons.forEach(btn => {
+    btn.addEventListener('click', function() {
+      tabButtons.forEach(b => b.classList.remove('active'));
+      tabContents.forEach(tab => tab.classList.remove('active'));
+      btn.classList.add('active');
+      const tab = document.getElementById(btn.dataset.tab);
+      if (tab) tab.classList.add('active');
+      localStorage.setItem('yoprompt_last_tab', btn.dataset.tab);
+    });
+  });
+
+  // --- Form State Persistence (all tabs) ---
+  // Save on input/change, restore on load
+  const formSelectors = [
+    '#mypreset-form',
+    '#prompt',
+    '#presets',
+    '#background',
+    '#resources'
+  ];
+  formSelectors.forEach(sel => {
+    const form = document.querySelector(sel);
+    if (!form) return;
+    // Restore
+    const saved = localStorage.getItem('yoprompt_form_' + sel);
+    if (saved) {
+      try {
+        const data = JSON.parse(saved);
+        Object.entries(data).forEach(([k, v]) => {
+          const el = form.querySelector(`[name="${k}"]`) || form.querySelector(`#${k}`);
+          if (!el) return;
+          if (el.type === 'checkbox' || el.type === 'radio') {
+            el.checked = !!v;
+          } else if (el.tagName === 'SELECT') {
+            el.value = v;
+          } else {
+            el.value = v;
+          }
+        });
+      } catch {}
+    }
+    // Save
+    form.addEventListener('input', function() {
+      const data = {};
+      form.querySelectorAll('input,select,textarea').forEach(el => {
+        if (el.type === 'checkbox' || el.type === 'radio') {
+          data[el.name || el.id] = el.checked;
+        } else {
+          data[el.name || el.id] = el.value;
+        }
+      });
+      localStorage.setItem('yoprompt_form_' + sel, JSON.stringify(data));
+    });
+    form.addEventListener('change', function() {
+      const data = {};
+      form.querySelectorAll('input,select,textarea').forEach(el => {
+        if (el.type === 'checkbox' || el.type === 'radio') {
+          data[el.name || el.id] = el.checked;
+        } else {
+          data[el.name || el.id] = el.value;
+        }
+      });
+      localStorage.setItem('yoprompt_form_' + sel, JSON.stringify(data));
+    });
+  });
   // --- My Presets Logic ---
   const myPresetForm = document.getElementById('mypreset-form');
   const myPresetList = document.getElementById('mypreset-list');
