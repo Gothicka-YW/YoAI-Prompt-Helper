@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>YoPrompt Creator</title>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&amp;family=Metamorphous&amp;display=swap" rel="stylesheet"/>
+<link href="popup.css" rel="stylesheet"/><link href="theme.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="popup-frame">
+<header class="header">
+<div class="brand">
+<span class="dot"></span>
+<h1>YoPrompt Creator</h1>
+</div>
+</header>
+<nav class="tabs">
+<button class="tab-button active" data-tab="presets">AI Presets</button>
+<button class="tab-button" data-tab="prompt">Prompt Creator</button>
+<button class="tab-button" data-tab="background">BG Creator</button>
+<button class="tab-button" data-tab="resources">Resources</button>
+</nav>
+<main class="content">
+<!-- Tab 1: AI Presets -->
+<section class="tab-content active" id="presets">
+<h2>AI Presets</h2>
+<div class="field">
+<label class="label" for="preset-select">Choose a preset</label>
+<select class="select" id="preset-select"><option value="">Select…</option><option value="3d">3D Illustration</option><option value="bratz">Bratz Doll</option><option value="male">Retain Male Features; Semi-real</option><option value="gothic">Gothic Cartoon</option><option value="glam">Glam Cartoon</option><option value="fashion">High Fashion</option><option value="cyberpunk">Sci-Fi — Cyberpunk</option><option value="futuristic">Sci-Fi — Futuristic</option><option value="elven">Elven Fantasy</option><option value="rustic">Rustic Bohemian</option></select>
+</div>
+<div class="field">
+<label class="label">Output prompt (copy into your AI)</label>
+<textarea class="output" id="preset-output" placeholder="Selecting a preset will populate a detailed prompt here…" readonly="" rows="16"></textarea>
+</div>
+<div class="actions">
+	<button class="primary" disabled="" id="copy-preset">Copy Preset Prompt</button>
+		<span id="copy-preset-feedback" class="copy-feedback"></span>
+</div>
+</section>
+<!-- Tab 2: Prompt Creator (full controls restored) -->
+<section class="tab-content" id="prompt">
+<h2>Prompt Creator</h2>
+<div class="field">
+<label class="label" for="pc-art-style">Art Style</label>
+<select class="select" id="pc-art-style">
+<option value="">Select style…</option>
+<option>3D Illustration</option>
+<option>Art Deco</option>
+<option>Avant-Garde</option>
+<option>Bratz Doll</option>
+<option>Cartoon</option>
+<option>Chibi</option>
+<option>Comic Book</option>
+<option>Cubism</option>
+<option>Fantasy</option>
+<option>Fashion Illustration</option>
+<option>Flat</option>
+<option>Gothic Illustration</option>
+<option>Graffiti / Street Art</option>
+<option>Graphic</option>
+<option>Grey Scale</option>
+<option>Illustrated</option>
+<option>Impressionist</option>
+<option>Line Art / Sketch</option>
+<option>Low Poly</option>
+<option>Manga / Anime</option>
+<option>Minimalist / Flat Color</option>
+<option>Monster High Doll</option>
+<option>Oil Painting</option>
+<option>Photorealistic Render</option>
+<option>Pixel Art</option>
+<option>Pop Art</option>
+<option>Powerpuff Style</option>
+<option>Retro</option>
+<option>Surrealism</option>
+<option>Watercolor</option>
+</select>
+</div>
+
+<div class="field">
+  <label class="label" for="pc-output-style">Output Style</label>
+  <select class="select" id="pc-output-style">
+    <option value="">Select output style…</option>
+    <option>Cartoon</option>
+    <option>Semi-Realistic</option>
+    <option>Chibi</option>
+    <option>Photorealistic</option>
+    <option>Anime</option>
+    <option>Pixel Art</option>
+    <option>Watercolor</option>
+    <option>Comic Book</option>
+    <option>Other</option>
+  </select>
+</div>
+
+<div class="field">
+  <label class="label" for="pc-expression">Emotion / Expression</label>
+  <select class="select" id="pc-expression">
+    <option value="">Select expression…</option>
+    <option>Neutral</option>
+    <option>Smiling</option>
+    <option>Serious</option>
+    <option>Winking</option>
+    <option>Surprised</option>
+    <option>Angry</option>
+    <option>Sad</option>
+    <option>Other</option>
+  </select>
+</div>
+
+<div class="field">
+  <label class="label" for="pc-hand-item">Hand/Item Details</label>
+  <input class="input" id="pc-hand-item" type="text" placeholder="e.g. holding a rose, phone, etc." />
+</div>
+<div class="field">
+<label class="label">Body Proportions</label>
+<div class="radio-group">
+<label><input checked="" name="pc-body" type="radio" value="keep"/> Keep proportions as shown</label>
+<label><input name="pc-body" type="radio" value="natural"/> Use natural, human proportions</label>
+<label><input name="pc-body" type="radio" value="chibi"/> Use chibi proportions</label>
+</div>
+</div>
+<div class="field">
+<label class="label">Hair + Face options (check any)</label>
+<div class="check-group">
+<label><input class="pc-hf" type="checkbox" value="Preserve all hair and facial features"/> Preserve all hair and facial features</label>
+<label><input class="pc-hf" type="checkbox" value="Soften facial features"/> Soften facial features</label>
+<label><input class="pc-hf" type="checkbox" value="Lengthen hair past waist"/> Lengthen hair past waist</label>
+<label><input class="pc-hf" type="checkbox" value="Lengthen hair to feet"/> Lengthen hair to feet</label>
+<label><input class="pc-hf" type="checkbox" value="Glossy lips"/> Glossy lips</label>
+</div>
+</div>
+<div class="field">
+<label class="label">Accessories</label>
+<label class="inline"><input id="pc-acc-accuracy" type="checkbox"/> Ensure accessory accuracy (esp. hand-held items)</label>
+</div>
+<div class="field">
+<label class="label">Effects (select up to 2)</label>
+<div class="check-group">
+<label><input class="pc-eff" type="checkbox" value="Glow / Neon Edge"/> Glow / Neon Edge</label>
+<label><input class="pc-eff" type="checkbox" value="Sparkles"/> Sparkles</label>
+<label><input class="pc-eff" type="checkbox" value="Rim Light"/> Rim Light</label>
+<label><input class="pc-eff" type="checkbox" value="Motion Lines"/> Motion Lines</label>
+<label><input class="pc-eff" type="checkbox" value="Aura / Energy Field"/> Aura / Energy Field</label>
+<label><input class="pc-eff" type="checkbox" value="Soft Gradient Overlay"/> Soft Gradient Overlay</label>
+<label><input class="pc-eff" type="checkbox" value="None"/> None</label>
+</div>
+<div class="note" id="eff-note" style="display:none;">(Max 2 effects selected)</div>
+</div>
+<div class="field">
+<label class="label" for="pc-lighting">Lighting</label>
+<select class="select" id="pc-lighting">
+<option>None / Preserve current lighting</option>
+<option>Softbox Lighting</option>
+<option>Spotlight</option>
+<option>Dramatic Rim Lighting</option>
+<option>Daylight</option>
+<option>Studio Gradient</option>
+<option>Stage Lighting</option>
+</select>
+</div>
+<div class="field">
+<label class="label">Background</label>
+<label class="inline"><input id="pc-bg-trans" type="checkbox"/> Keep the background transparent</label>
+</div>
+<div class="field">
+<label class="inline"><input id="pc-pose" type="checkbox"/> Preserve existing pose</label>
+</div>
+<div class="field">
+<label class="inline"><input id="pc-fullbody" type="checkbox"/> Ensure full body (feet not cut off)</label>
+</div>
+<div class="actions">
+<button class="primary" id="assemble">Assemble Prompt</button>
+<button class="primary" disabled id="copy">Copy Prompt</button>
+<button class="primary" id="randomize">Randomize</button>
+<button class="primary" id="save-settings">Save Settings</button>
+<button class="primary" id="load-settings">Load Settings</button>
+</div>
+<textarea class="output" id="output" placeholder="Your assembled prompt will appear here…" readonly rows="8"></textarea>
+</section>
+<!-- Tab 3: BG Creator -->
+<section class="tab-content" id="background">
+<h2>BG Creator</h2><div class="field"><label class="label">Choose a background preset</label><select class="select" id="bg-select"><option value="">Select…</option><option value="fantasy_forest">Fantasy Forest Clearing</option><option value="gothic_castle">Gothic Castle Interior</option><option value="runway">High Fashion Runway</option><option value="barn_loft">Rustic Barn Loft</option><option value="neon_city">Sci-Fi Neon City</option><option value="space_hub">Futuristic Space Hub</option><option value="elven_glade">Elven Forest Glade</option><option value="club_lounge">Cartoon Club Lounge</option><option value="magic_library">Magic Academy Library</option><option value="ballroom">Royal Ballroom</option><option value="new_years">New Years Celebration</option><option value="fourth_july">4th of July Fireworks</option><option value="halloween">Halloween Night</option><option value="thanksgiving">Thanksgiving Harvest</option><option value="christmas">Christmas Celebration</option><option value="birthday">Birthday Party</option></select></div><textarea class="output" id="bg-output" placeholder="Background preset description will appear here…" readonly="" rows="10"></textarea><div class="actions"><button class="btn ghost" disabled="" id="bg-copy">Copy</button></div>
+<p class="muted"></p>
+</section>
+<!-- Tab 4: Resources -->
+<section class="tab-content" id="resources">
+<h2>Resources</h2>
+<ul class="resource-list">
+  <li><a href="https://chatgpt.com/" rel="noopener noreferrer" target="_blank">ChatGPT</a></li>
+  <li><a href="https://nightcafe.art/ru/cajungypsy?refsrc=share" rel="noopener noreferrer" target="_blank">NightCafe</a></li>
+  <li><a href="https://www.canva.com/ai-image-generator/" rel="noopener noreferrer" target="_blank">Canva</a></li>
+  <li><a href="https://designer.microsoft.com/image-creator" rel="noopener noreferrer" target="_blank">Microsoft Designer</a></li>
+  <li><a href="https://www.adobe.com/products/firefly/features/text-to-image.html" rel="noopener noreferrer" target="_blank">Adobe Firefly</a></li>
+  <li><a href="https://magicstudio.com/ai-art-generator/" rel="noopener noreferrer" target="_blank">Magic Studio</a></li>
+  <li><a href="https://sora.chatgpt.com/library" rel="noopener noreferrer" target="_blank">Sora (Paid)</a></li>
+</ul>
+<!-- Import/Export Presets UI -->
+<div class="import-export-wrap" style="margin: 18px 0 12px 0;">
+  <h3 style="margin-bottom: 6px; font-size: 1.1em;">Import/Export Presets</h3>
+  <button id="export-presets-btn" class="btn">Export All Presets</button>
+  <input type="file" id="import-presets-file" accept="application/json" style="display:none;" />
+  <button id="import-presets-btn" class="btn">Import Presets</button>
+  <span id="import-export-feedback" class="copy-feedback" style="margin-left:8px;"></span>
+</div>
+<div class="coffee-wrap"><a class="btn coffee" href="https://buymeacoffee.com/ywpaint" rel="noopener noreferrer" target="_blank">Buy Me a Coffee</a></div>
+<div class="bug-report"><a href="#" id="copy-bug-email-link">Report Bugs (copy email)</a><div class="muted" id="copy-bug-note"></div></div>
+<p class="muted"></p>
+</section>
+</main>
+<footer class="footer"><span>YoPrompt Creator v0.6.3</span><span>Community Edition — Created by Gothicka</span></footer>
+</div>
+<script src="popup.js"></script>
+</body>
+</html>
