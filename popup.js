@@ -1,19 +1,164 @@
 // Tabs
 const PRESETS = {
-  "3d": `- Transform this flat cartoon avatar into a fully textured, three-dimensional figure with realistic shading, depth, and detailed surfaces.
-- Preserve the proportions, pose, and recognizable features including makeup and beauty marks of the original character, but enhance with natural skin/cloth/hair textures, highlights, and shadows.
-- Ensure the result looks volumetric and full-bodied, not flat.
-- Lengthen the legs to average human length.
-- Ensure accuracy of handheld items, hat, and accessories.
-- Image will show full body, including feet/shoes.
-- Retain a transparent background with no extra objects or scenery.
-- Illustrated style.`,
-  "bratz": `- Transform this avatar into a Bratz Doll inspired character: big glossy eyes with bold liner, fuller lips with a soft gloss, contoured face, fashion-forward styling.
-- Preserve the original proportions, pose, and key recognizable features while enhancing with doll-like smooth skin and subtle gradient shading for depth.
-- Retain makeup, beauty marks, and effects.
-- Include the handheld items shown.
-- Image will show full body, including feet or shoes.
-- Output on a transparent background; avoid extra props or scenery.`,
+  "3d": `Transform the provided YoWorld avatar into a stylized 3D clay-like character.
+
+Render the avatar as if sculpted from smooth modeling clay:
+– fuller, rounded forms
+– softened edges
+– slightly exaggerated volume while preserving original proportions
+– cohesive, tactile solidity
+
+Preserve all identifying characteristics exactly as provided, including facial structure, body shape, skin tone, eye shape and color, hair color and style, and all defining features.
+Do not alter age, ethnicity, gender expression, or core appearance.
+
+STYLE & MATERIALS:
+– smooth clay or polymer-like surface
+– matte to soft-satin finish
+– uniform material with no visible texture
+– subtle form shading only (from shape, not texture)
+– gentle, diffused highlights
+
+STRICT MATERIAL RULES:
+– NO painterly textures
+– NO brush strokes
+– NO surface grain, noise, pores, or fabric detail
+– NO hand-painted or illustrative effects
+– NO gradients unrelated to form curvature
+
+COMPOSITION:
+This image must contain ONLY the avatar.
+Do NOT generate any background, environment, floor, horizon, sky, room, gradient, vignette, fog, glow, or atmospheric elements.
+The avatar exists in complete isolation.
+
+POSE & FRAMING:
+– natural, confident pose
+– full body visible head to toe
+– centered composition
+– neutral camera angle
+
+RESTRICTIONS:
+– no shadows cast outside the avatar silhouette
+– no rim lighting, bloom, haze, or glow
+– no added props, accessories, makeup, tattoos, or clothing changes unless already present
+
+Focus on sculptural volume, clay-like fullness, and exact likeness.`,
+  "bratz": `Transform the provided YoWorld avatar into a Bratz-inspired fashion-doll illustrated character,
+while maintaining normal YoWorld human proportions.
+
+Render the avatar in a bold, fashion-forward cartoon style:
+– expressive, glossy eyes with bold eyeliner and defined lashes
+– fuller lips with clean, graphic gloss
+– contoured facial structure using flat or stepped shading
+– smooth, polished doll-like finish
+
+IDENTITY & PROPORTION LOCK (CRITICAL):
+Preserve the original body proportions, scale, and pose exactly as provided.
+Maintain a realistic human head-to-body ratio consistent with YoWorld avatars.
+Do NOT enlarge the head, eyes, hands, feet, or facial features beyond natural YoWorld scale.
+Do NOT stylize into chibi, super-deformed, caricature, or exaggerated proportions.
+
+Preserve all identifying characteristics exactly as provided, including facial structure, skin tone, eye shape and color, hair color and style, makeup, beauty marks, and existing visual effects.
+Do not alter age, ethnicity, gender expression, or core appearance.
+
+FACIAL RENDERING (STRICT):
+– clean, smooth cartoon facial rendering
+– bold, closed outlines around eyes, lips, nose, and face
+– flat or softly stepped color fills
+– NO blended, airbrushed, or painterly face shading
+– NO skin texture, pores, grain, or realism effects
+
+STYLE & FINISH:
+– graphic, production-style illustration
+– smooth surfaces with crisp edges
+– minimal gradients allowed ONLY for structural depth (not beauty blending)
+– non-painterly, non-textured appearance
+
+ITEM & OUTFIT RULES:
+– retain all existing makeup, accessories, beauty marks, and effects
+– include all handheld items exactly as shown
+– do not add or remove clothing, props, or accessories
+
+COMPOSITION:
+– full body visible, including feet or shoes
+– centered composition
+– image must contain ONLY the avatar
+
+BACKGROUND & SCENE RULES:
+– no background, environment, floor, horizon, sky, room, vignette, gradient, or scenery
+– output must be transparent or plain with no spatial context
+
+GLOBAL RESTRICTIONS:
+– NO painterly textures
+– NO brush strokes, canvas grain, or noise
+– NO watercolor, oil paint, pastel, chalk, or acrylic effects
+– NO glow, bloom, haze, or lighting spill
+– NO shadows cast outside the avatar silhouette
+
+PRIORITY ORDER:
+1. Normal human proportions (no chibi)
+2. Clean cartoon face with bold lines
+3. Exact likeness
+4. Bratz-inspired fashion aesthetic`,
+  "monster_high": `Transform the provided YoWorld avatar into a monster-doll–style articulated toy illustration.
+
+Render the avatar as a gothic fashion doll with tall, slender human proportions and visible articulation.
+The overall style must be clean, graphic, and cartoon-based — NOT painterly.
+
+IDENTITY LOCK:
+Preserve all identifying characteristics exactly as provided, including facial structure, skin tone, eye shape and color, hair color and style, proportions, and all defining features.
+Do not alter age, ethnicity, gender expression, or core appearance.
+
+FACIAL RENDERING (CRITICAL):
+– face must be rendered with bold, smooth cartoon linework
+– clean, closed outlines around facial features
+– flat or softly stepped color fills
+– NO blended shading on the face
+– NO soft gradients on cheeks, nose, or forehead
+– NO painterly skin texture
+– facial rendering should resemble vector-style cartoon art
+
+PROPORTION & SHAPE:
+– tall, slender fashion-doll anatomy
+– human-scale proportions
+– no chibi or caricature distortion
+
+ARTICULATION (ILLUSTRATED):
+– visible joint markers at shoulders, elbows, wrists, hips, knees, and ankles
+– clean seam lines or circular joint indicators
+– joints appear designed and intentional
+
+STYLE & FINISH (BODY & CLOTHING):
+– smooth surfaces
+– crisp edges
+– flat-to-soft shading only
+– minimal gradients limited to form edges (not faces)
+
+STRICT STYLE CONSTRAINTS:
+– NO painterly textures
+– NO brush strokes
+– NO canvas grain, noise, or paper texture
+– NO watercolor, oil paint, pastel, chalk, or acrylic effects
+– NO sketch lines or rough illustration
+– NO airbrushed or blended face shading
+
+COMPOSITION:
+This image must contain ONLY the avatar.
+Do NOT generate any background, environment, floor, horizon, sky, room, gradient, vignette, or atmospheric elements.
+
+POSE & FRAMING:
+– fashion-doll display pose
+– full body visible head to toe
+– centered composition
+
+RESTRICTIONS:
+– no shadows outside the avatar silhouette
+– no glow, bloom, haze, or lighting spill
+– no added props, accessories, makeup, tattoos, or clothing changes unless already present
+
+PRIORITY ORDER:
+1. Clean cartoon face with bold outlines
+2. Exact likeness
+3. Articulated monster-doll aesthetic`,
   "male": `- Transform this male avatar in a semi-realistic manner.
 - Include the full figure, head-to-toe.
 - Correct the proportions; no bobbleheads, no Chibi.
@@ -37,15 +182,37 @@ const PRESETS = {
 - Preserve existing avatar pose; do not alter stance.
 - Keep the background transparent with no extra objects or scenery.
 - Preserve avatar’s recognizable features; clean edges.`,
-  "glam": `- Transform this avatar with a sleek, glamorous cartoon look: sultry styling, dramatic eyelashes, glossy lips, luxurious hair, large eyes, and an elegant evening vibe.
-- Preserve the avatar’s proportions, pose, and recognizable features.
-- Add natural skin, cloth, and hair textures with highlights and shadows for depth.
-- Retain makeup, beauty marks, and effects.
-- Lengthen the legs.
-- Ensure accuracy of handheld items, hat, jewelry, and accessories.
-- Transparent background, no extra objects.
-- Full body shown, including feet/shoes.
-- Extend canvas if needed to fit the full figure vertically.`,
+  "glam": `Glamourize the provided YoWorld avatar.
+
+Create a full-body depiction in a clean, polished cartoon style consistent with YoWorld aesthetics.
+Retain all identifying characteristics exactly as provided, including facial structure, skin tone, eye shape, eye color, hair color, hairstyle, proportions, body type, and all defining features.
+Do not alter age, ethnicity, gender expression, or core appearance.
+
+This image must contain ONLY the avatar.
+Do NOT generate any background, environment, setting, floor, ground plane, horizon, sky, room, gradient, vignette, light field, or atmospheric elements.
+The avatar must exist in complete isolation with no spatial or environmental context.
+
+Enhance with subtle glamour styling only:
+– smooth, flat-to-soft shading
+– clean vector-like or cel-shaded surfaces
+– crisp, well-defined edges
+– controlled highlights applied to the avatar only
+– balanced, even color saturation
+
+STRICT STYLE CONSTRAINTS:
+– NO painterly textures
+– NO brush strokes
+– NO canvas grain
+– NO watercolor, oil paint, pastel, chalk, or acrylic effects
+– NO sketch lines or rough linework
+– NO soft-focus blur or artistic smudging
+
+Pose should be natural and confident, fully visible head to toe.
+No shadows cast outside the avatar.
+No glow, haze, bloom, rim light, or lighting spill beyond the avatar silhouette.
+No added props, accessories, makeup, tattoos, or clothing changes unless already present on the avatar.
+
+Prioritize clarity, polish, and exact likeness.`,
   "fashion": `- Transform this avatar with a high-fashion editorial look inspired by runway and couture styling.
 - Emphasize dramatic poses, bold makeup, sleek hair.
 - Present avant-garde details in clothing and accessories.
@@ -189,6 +356,16 @@ const BG_PRESETS = {
 };
 
 document.addEventListener('DOMContentLoaded', function() {
+  function formatPresetLabel(key) {
+    if (key === 'dr_suess') return 'Dr. Suess';
+    if (key === '3d') return '3D (Clay)';
+    if (key === 'monster_high') return 'Monster High';
+    return key.charAt(0).toUpperCase() + key.slice(1).replace(/_/g, ' ');
+  }
+
+  // Elements referenced across helpers must be declared before use (avoid TDZ)
+  let assembleBtn = null;
+
   // Toast helper
   function showToast(msg) {
     const toast = document.getElementById('toast');
@@ -212,6 +389,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // --- Tab State Persistence ---
   const tabButtons = document.querySelectorAll('.tab-button');
   const tabContents = document.querySelectorAll('.tab-content');
+  const contentEl = document.querySelector('.content');
   // Restore last tab
   const lastTab = localStorage.getItem('yoprompt_last_tab');
   if (lastTab) {
@@ -222,6 +400,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (btn && tab) {
       btn.classList.add('active');
       tab.classList.add('active');
+      if (contentEl) contentEl.classList.toggle('mypresets-active', lastTab === 'mypresets');
     }
   }
   // Tab click handler
@@ -233,6 +412,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const tab = document.getElementById(btn.dataset.tab);
       if (tab) tab.classList.add('active');
       localStorage.setItem('yoprompt_last_tab', btn.dataset.tab);
+      if (contentEl) contentEl.classList.toggle('mypresets-active', btn.dataset.tab === 'mypresets');
     });
   });
 
@@ -546,24 +726,6 @@ document.addEventListener('DOMContentLoaded', function() {
       setTimeout(() => { loadBtn.textContent = 'Load Settings'; }, 1200);
     }
   });
-  // Tab switching with My Presets height fix
-  document.querySelectorAll('.tab-button').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
-      document.querySelectorAll('.tab-content').forEach(s => s.classList.remove('active'));
-      btn.classList.add('active');
-      const tabId = btn.dataset.tab;
-      document.getElementById(tabId).classList.add('active');
-      // Height fix for My Presets
-      const content = document.querySelector('.content');
-      if (tabId === 'mypresets') {
-        content.classList.add('mypresets-active');
-      } else {
-        content.classList.remove('mypresets-active');
-      }
-    });
-  });
-
   // AI Presets tab
   const presetSelect = document.getElementById('preset-select');
   const presetOut = document.getElementById('preset-output');
@@ -578,12 +740,7 @@ document.addEventListener('DOMContentLoaded', function() {
     Object.keys(PRESETS).sort().forEach(key => {
       const opt = document.createElement('option');
       opt.value = key;
-      // Display label: capitalize and replace underscores with spaces, special case for Dr. Suess
-      if (key === 'dr_suess') {
-        opt.textContent = 'Dr. Suess';
-      } else {
-        opt.textContent = key.charAt(0).toUpperCase() + key.slice(1).replace(/_/g, ' ');
-      }
+      opt.textContent = formatPresetLabel(key);
       presetSelect.appendChild(opt);
     });
     presetSelect.addEventListener('change', () => {
@@ -611,7 +768,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // BG Creator tab
   const bgSelect = document.getElementById('bg-select');
     // Prompt Creator tab logic
-    const assembleBtn = document.getElementById('assemble');
+    assembleBtn = document.getElementById('assemble');
     const copyBtn = document.getElementById('copy');
     const outputArea = document.getElementById('output');
     if (assembleBtn && copyBtn && outputArea) {
@@ -745,7 +902,7 @@ document.addEventListener('DOMContentLoaded', function() {
               Object.keys(PRESETS).forEach(key => {
                 const opt = document.createElement('option');
                 opt.value = key;
-                opt.textContent = key.charAt(0).toUpperCase() + key.slice(1).replace(/_/g, ' ');
+                opt.textContent = formatPresetLabel(key);
                 presetSelect.appendChild(opt);
               });
             }
