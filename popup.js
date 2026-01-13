@@ -225,30 +225,188 @@ Prioritize clarity, polish, and exact likeness.`,
 - Ensure the result looks volumetric and full-bodied.
 - Include full body, head-to-toe, with shoes visible; extend canvas if needed to avoid cropping.
 - Transparent background, no props or scenery, keeping focus solely on the styled figure.`,
-  "cyberpunk": `- Transform this avatar with a gritty cartoon illustratedcyberpunk aesthetic: neon accents, tech implants, worn futuristic fabrics.
-- Apply edgy, urban vibes with bold contrasts and layered metallic textures.
-- Preserve the avatar’s proportions, pose, and recognizable features.
-- Include full body, head-to-toe, with shoes visible: extend canvas if needed to avoid cropping.
-- Transparent background, no extra objects.`,
+  "cyberpunk": `Transform the provided YoWorld avatar into a gritty cyberpunk–style cartoon illustration.
+
+Render the avatar in a bold, urban cyberpunk aesthetic:
+– neon accent lighting (cyan, magenta, electric purple, acid green)
+– stylized tech implants and cybernetic details
+– futuristic clothing with worn, layered design language
+– edgy, street-level cyberpunk attitude
+
+IDENTITY & PROPORTION LOCK:
+Preserve the avatar’s original proportions, pose, and all recognizable features exactly as provided, including facial structure, skin tone, eye shape and color, hair color and style, and defining details.
+Do not alter age, ethnicity, gender expression, or core appearance.
+Do NOT exaggerate anatomy or introduce chibi, caricature, or realism creep.
+
+FACIAL RENDERING (CRITICAL):
+– clean cartoon facial rendering
+– bold, smooth linework with closed outlines
+– flat or softly stepped shading only
+– NO blended, airbrushed, or painterly face shading
+– NO skin texture, pores, grain, or photoreal detail
+
+STYLE & MATERIAL TREATMENT:
+– graphic, illustrated cyberpunk style (not 3D, not photorealistic)
+– sharp edges and crisp silhouettes
+– metallic elements suggested through color blocking and highlights only
+– fabric wear implied via graphic design, NOT texture simulation
+– high contrast without noise or grit overlays
+
+CYBERPUNK DETAILS:
+– neon-lit circuitry accents, panels, or trims
+– stylized implants integrated cleanly into the design
+– layered futuristic clothing with urban influence
+– metallic elements appear smooth and illustrated, not textured
+
+COMPOSITION:
+– full body visible, head to toe, including shoes
+– extend canvas as needed to avoid cropping
+– centered composition
+– image must contain ONLY the avatar
+
+BACKGROUND & SCENE RULES:
+– no background, environment, floor, horizon, sky, room, vignette, gradient, or scenery
+– output must be transparent or plain with no spatial context
+
+GLOBAL STYLE RESTRICTIONS:
+– NO painterly textures
+– NO brush strokes, canvas grain, or noise
+– NO watercolor, oil paint, pastel, chalk, or acrylic effects
+– NO photorealism or cinematic lighting
+– NO glow spill, haze, bloom, or lighting outside the avatar silhouette
+– NO extra props or objects beyond what the avatar already has
+
+PRIORITY ORDER:
+1. Clean cartoon linework and non-painterly finish
+2. Preserved identity and proportions
+3. Gritty cyberpunk aesthetic through design, not texture
+4. Full-body clarity with transparent background`,
   "futuristic": `- Transform this avatar with a clean, futuristic cartoon aesthetic: smooth fabrics, advanced sci-fi fashion, glowing accents.
 - Minimalist styling with sleek details and a high-tech appearance.
 - Preserve the avatar’s proportions, pose, and recognizable features.
 - Include full body, head-to-toe, with shoes visible: extend canvas if needed to avoid cropping.
 - Transparent background, no extra objects.`,
-  "dr_suess": `- Transform this avatar into a chaotic, surreal Dr. Seuss–inspired character.
-- Stretch and bend proportions in playful, exaggerated ways — tall, twisting forms or oddly rounded shapes.
-- Use wild, vibrant color combinations with bold stripes, zigzags, and mismatched patterns.
-- Preserve the avatar’s recognizable features, but stylize them with surreal, whimsical distortions.
-- Render hair, clothing, and accessories with curvy, flowing, almost gravity-defying designs.
-- Lengthen the legs while keeping proportions whimsical and surreal.
-- Ensure accuracy of handheld items, hats, jewelry, and accessories, but twist them into quirky, Seussian forms.
-- Include full body, head-to-toe, with shoes visible: extend canvas if needed to avoid cropping.
-- Transparent background, no extra scenery.`,
-  "elven": `- Transform this avatar into an elven fantasy illustrated cartoon character: elegant, ethereal styling with natural, flowing lines.
-- Emphasize delicate features, fine hair detail, and fantasy-inspired attire.
-- Preserve the avatar’s proportions, pose, and recognizable features.
-- Include full body, head-to-toe, with shoes visible: extend canvas if needed to avoid cropping.
-- Transparent background, no extra objects.`,
+  "dr_suess": `Transform the provided YoWorld avatar into a chaotic, surreal, Dr. Seuss–inspired cartoon character.
+
+Render the avatar in a whimsical, storybook-style cartoon aesthetic:
+– playful, exaggerated proportions
+– tall, twisting, elastic forms
+– curved silhouettes and rhythmic shapes
+– intentionally odd but cohesive anatomy
+
+IDENTITY PRESERVATION:
+Preserve the avatar’s recognizable identity, including facial structure, skin tone, eye shape and color, hair color and style, and overall character likeness.
+Do not change age, ethnicity, gender expression, or core identity.
+Stylize features through surreal distortion only, not replacement.
+
+PROPORTIONS & DISTORTION:
+– exaggerate proportions in a whimsical, surreal manner
+– legs may be lengthened and slightly curved or bent
+– torso and limbs may stretch, tilt, or arc playfully
+– distortions should feel imaginative and intentional, not random
+– avoid chibi or super-deformed styles
+
+STYLE & LINEWORK:
+– clean, bold cartoon outlines
+– smooth, graphic linework
+– flat to softly stepped color fills
+– crisp edges and high clarity
+– NO painterly textures or blended shading
+
+COLOR & PATTERNS:
+– wild, vibrant color combinations
+– bold stripes, zigzags, dots, spirals, and mismatched patterns
+– high-contrast, playful palette
+– patterns should feel whimsical and rhythmic, not chaotic noise
+
+HAIR, CLOTHING & ACCESSORIES:
+– render hair, clothing, hats, jewelry, and accessories with flowing, gravity-defying curves
+– shapes may curl, swoop, or bend in surreal ways
+– retain all handheld items, hats, jewelry, and accessories exactly as shown, but reinterpret them with quirky, Seussian-style distortions
+– do not add or remove items
+
+COMPOSITION:
+– full body visible head to toe, including shoes
+– extend canvas as needed to avoid cropping
+– centered composition
+
+BACKGROUND & SCENE RULES:
+– no background, environment, floor, horizon, sky, room, gradient, vignette, or scenery
+– avatar must exist in isolation
+– output must be transparent or plain with no spatial context
+
+GLOBAL STYLE RESTRICTIONS:
+– NO painterly textures
+– NO brush strokes, canvas grain, or noise
+– NO watercolor, oil paint, pastel, chalk, or acrylic effects
+– NO soft-focus blur or realism creep
+– NO shadows cast outside the avatar silhouette
+
+PRIORITY ORDER:
+1. Whimsical, surreal Seussian-style distortion
+2. Clean cartoon linework and bold color
+3. Preserved identity and recognizable features
+4. Full-body clarity with no background`,
+  "elven": `Transform the provided YoWorld avatar into an elven fantasy–inspired illustrated cartoon character.
+
+Render the avatar with an elegant, ethereal elven aesthetic:
+– graceful posture and refined silhouette
+– subtle elongation of the body and limbs (delicate, not exaggerated)
+– light, otherworldly presence conveyed through form and posture
+– smooth, flowing visual rhythm
+
+IDENTITY & PROPORTION LOCK:
+Preserve all recognizable identity features exactly as provided, including facial structure, skin tone, eye shape and color, hair color and style, and overall likeness.
+Do NOT alter age, ethnicity, gender expression, or core identity.
+Maintain the avatar’s original pose and overall scale.
+
+BODY & ETHEREAL ADJUSTMENTS (PRIMARY FOCUS):
+– subtly elongate the neck, limbs, and fingers for an elven feel
+– refine body contours to appear lighter, more graceful, and otherworldly
+– soften transitions between body forms for an airy, fluid appearance
+– changes should affect the avatar’s presence and anatomy, not clothing
+
+CLOTHING & ITEM PRESERVATION (CRITICAL):
+– retain all clothing exactly as shown
+– do NOT redesign, replace, distort, or stylize clothing into fantasy costumes
+– fabrics, silhouettes, and outfit details must remain recognizable and intact
+– include all existing accessories, jewelry, hats, and handheld items unchanged
+
+FACIAL RENDERING:
+– clean cartoon facial rendering
+– smooth, refined features with gentle elegance
+– bold but delicate linework
+– flat to softly stepped shading only
+– NO painterly blending, airbrushing, or texture
+
+STYLE & FINISH:
+– graphic, illustrated fantasy style
+– smooth surfaces with crisp edges
+– subtle glow-like softness achieved through form and color, NOT effects
+– non-painterly, non-textured appearance
+
+COMPOSITION:
+– full body visible, head to toe, including shoes
+– extend canvas as needed to avoid cropping
+– centered composition
+– image must contain ONLY the avatar
+
+BACKGROUND & SCENE RULES:
+– no background, environment, floor, horizon, sky, room, vignette, gradient, or scenery
+– output must be transparent or plain with no spatial context
+
+GLOBAL RESTRICTIONS:
+– NO painterly textures
+– NO brush strokes, canvas grain, or noise
+– NO watercolor, oil paint, pastel, chalk, or acrylic effects
+– NO glow, bloom, haze, or lighting spill
+– NO added props or objects
+
+PRIORITY ORDER:
+1. Ethereal elven body presence and refined anatomy
+2. Preserved clothing and accessories (unchanged)
+3. Clean cartoon rendering (non-painterly)
+4. Exact likeness and full-body clarity`,
   "rustic": `- Transform this avatar with a soft rustic cartoon aesthetic: bougie bohemian, country farm living vibes.
 - Earthy tones, woven fabrics, cozy and natural accents.
 - Preserve the avatar’s proportions, pose, and recognizable features.
