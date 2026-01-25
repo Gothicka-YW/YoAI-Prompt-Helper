@@ -681,6 +681,26 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(() => { toast.style.display = 'none'; }, 1800);
   }
 
+  // --- Theme Selector (Resources tab, applies to entire popup) ---
+  function applyTheme(themeKey) {
+    const key = themeKey || 'dark';
+    document.documentElement.setAttribute('data-theme', key);
+  }
+
+  const themeSelect = document.getElementById('theme-select');
+  const savedTheme = localStorage.getItem('yoprompt_theme') || 'dark';
+  applyTheme(savedTheme);
+  if (themeSelect) {
+    themeSelect.value = savedTheme;
+    themeSelect.addEventListener('change', () => {
+      const val = themeSelect.value || 'dark';
+      localStorage.setItem('yoprompt_theme', val);
+      applyTheme(val);
+    });
+    // If form-state restore changes the select after initial paint, re-apply once.
+    requestAnimationFrame(() => applyTheme(themeSelect.value || savedTheme));
+  }
+
   // Bug report email copy
   const bugEmail = 'ywa.paint@gmail.com';
   const bugLink = document.getElementById('copy-bug-email-link');
@@ -740,6 +760,7 @@ document.addEventListener('DOMContentLoaded', function() {
       try {
         const data = JSON.parse(saved);
         Object.entries(data).forEach(([k, v]) => {
+          if (k === 'theme-select') return;
           const el = form.querySelector(`[name="${k}"]`) || form.querySelector(`#${k}`);
           if (!el) return;
           if (el.type === 'checkbox' || el.type === 'radio') {
@@ -756,6 +777,7 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('input', function() {
       const data = {};
       form.querySelectorAll('input,select,textarea').forEach(el => {
+        if (el.id === 'theme-select') return;
         if (el.type === 'checkbox' || el.type === 'radio') {
           data[el.name || el.id] = el.checked;
         } else {
@@ -767,6 +789,7 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('change', function() {
       const data = {};
       form.querySelectorAll('input,select,textarea').forEach(el => {
+        if (el.id === 'theme-select') return;
         if (el.type === 'checkbox' || el.type === 'radio') {
           data[el.name || el.id] = el.checked;
         } else {

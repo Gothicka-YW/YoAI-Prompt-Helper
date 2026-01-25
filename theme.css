@@ -1,15 +1,89 @@
 :root{
-  --bg:#1a1a1a; --bgSoft:#222222; --panel:#111111;
-  --accent:#c0c0c0; --text:#c0c0c0; --textDim:#aaaaaa; --border:#6e6e6e;
+  /* Default theme: Dark (current) */
+  --bg:#1a1a1a;
+  --bgSoft:#222222;
+  --panel:#111111;
+  --accent:#c0c0c0;
+  --text:#c0c0c0;
+  --textDim:#aaaaaa;
+  --border:#6e6e6e;
+
+  /* Optional page pattern (Calico uses this) */
+  --pagePattern: none;
+  --pagePatternSize: auto;
 }
-body{background:var(--bg);color:var(--text)}
+
+:root[data-theme="valentines"]{
+  --bg:#2a0b14;
+  --bgSoft:#3a0f1c;
+  --panel:#14060b;
+  --accent:#ff4da6;
+  --text:#fff0f6;
+  --textDim:#ffd1e6;
+  --border:#7a2948;
+}
+
+:root[data-theme="gothicka"]{
+  --bg:#07070a;
+  --bgSoft:#0d0d14;
+  --panel:#0a0a12;
+  --accent:#b98cff;
+  --text:#efe7ff;
+  --textDim:#cbb6ff;
+  --border:#3a2a55;
+}
+
+:root[data-theme="boho"]{
+  --bg:#ead7b8;
+  --bgSoft:#f2e4cc;
+  --panel:#fff6e8;
+  --accent:#2a7b54;
+  --text:#1d3b2a;
+  --textDim:#3a5b48;
+  --border:#c7b08c;
+}
+
+:root[data-theme="fruity"]{
+  --bg:#ffe26a;
+  --bgSoft:#fff0a6;
+  --panel:#fff8d1;
+  --accent:#ff3d7f;
+  --text:#4a1740;
+  --textDim:#7a2f67;
+  --border:#e6b84b;
+}
+
+:root[data-theme="calico"]{
+  --bg:#f3e2c7;
+  --bgSoft:#f9edd9;
+  --panel:#fff7eb;
+  --accent:#b34f2f;
+  --text:#2a1a12;
+  --textDim:#5a4437;
+  --border:#d1b494;
+
+  /* Abstract calico-ish patches (lightweight, readable) */
+  --pagePattern:
+    radial-gradient(circle at 20px 24px, rgba(30,20,14,0.18) 0 18px, transparent 19px),
+    radial-gradient(circle at 92px 64px, rgba(205,105,46,0.22) 0 22px, transparent 23px),
+    radial-gradient(circle at 44px 102px, rgba(30,20,14,0.10) 0 14px, transparent 15px),
+    radial-gradient(circle at 120px 22px, rgba(245,235,217,0.85) 0 28px, transparent 29px);
+  --pagePatternSize: 160px 140px;
+}
+
+body{
+  background-color: var(--bg);
+  background-image: var(--pagePattern, none);
+  background-size: var(--pagePatternSize, auto);
+  color:var(--text);
+}
 .header,.footer{background:var(--bgSoft);border-color:var(--border)}
 .tabs .tab-button{color:var(--accent);background:var(--bgSoft);border-color:var(--border)}
 .tabs .tab-button.active{background:var(--accent);color:#111;border-color:var(--accent)}
 .content,.card,.output,.select,textarea,select,input{background:var(--panel);border-color:var(--border);color:var(--text)}
 .label,h1,h2{color:var(--accent)}
 
-.popup-frame{border:1px solid rgba(192,192,192,0.6)}
+.popup-frame{border:1px solid var(--border)}
 
 /* Prevent layout shift between tabs */
 .popup-frame{max-height: none;}
@@ -20,20 +94,14 @@ body{background:var(--bg);color:var(--text)}
 .tab-content::-webkit-scrollbar{width:8px}
 .tab-content::-webkit-scrollbar-thumb{background: var(--textDim); border-radius:6px}
 
-/* Resources list with silver star bullets */
+/* Resources list with themed star bullets */
 .resource-list{list-style:none; padding-left:0; margin:8px 0;}
 .resource-list li{position:relative; padding-left:18px; margin:6px 0;}
-.resource-list li::before{content:"★"; position:absolute; left:0; top:0; color:#c0c0c0; font-size:12px; line-height:1;}
-.resource-list a{color:var(--text); text-decoration:underline;}
-
-/* Resources list with silver star bullets */
-.resource-list{list-style:none; padding-left:0; margin:8px 0;}
-.resource-list li{position:relative; padding-left:18px; margin:6px 0;}
-.resource-list li::before{content:"★"; position:absolute; left:0; top:0; color:#c0c0c0; font-size:12px; line-height:1;}
+.resource-list li::before{content:"★"; position:absolute; left:0; top:0; color:var(--accent); font-size:12px; line-height:1;}
 .resource-list a{color:var(--text); text-decoration:underline;}
 
 .coffee-wrap{display:flex; justify-content:center; margin:12px 0 6px 0;}
-.btn.coffee{background:#c0c0c0; color:#111; border:1px solid #c0c0c0; padding:10px 14px; border-radius:12px; font-weight:700; text-decoration:none;}
+.btn.coffee{background:var(--accent); color:#111; border:1px solid var(--accent); padding:10px 14px; border-radius:12px; font-weight:700; text-decoration:none;}
 .btn.coffee:hover{filter:brightness(1.05);}
 .bug-report{text-align:center; margin:4px 0 12px 0;}
 .bug-report a{color:var(--text); text-decoration:underline;}
