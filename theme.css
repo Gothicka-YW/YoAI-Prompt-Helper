@@ -71,11 +71,19 @@
   --pagePatternSize: 160px 140px;
 }
 
-body{
+html, body{
+  background: transparent;
+}
+
+body{ color:var(--text); }
+
+/* Theme background should live inside the rounded UI, not outside it */
+.popup-frame{
   background-color: var(--bg);
-  background-image: var(--pagePattern, none);
-  background-size: var(--pagePatternSize, auto);
-  color:var(--text);
+  background-image:
+    var(--pagePattern, none),
+    linear-gradient(180deg, var(--bg) 0%, var(--panel) 100%);
+  background-size: var(--pagePatternSize, auto), auto;
 }
 .header,.footer{background:var(--bgSoft);border-color:var(--border)}
 .tabs .tab-button{color:var(--accent);background:var(--bgSoft);border-color:var(--border)}

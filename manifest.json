@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "YoAI Prompt Helper \u2014 Community Edition",
   "description": "Yo AI Producer popup with AI Presets, Prompt Helper, BG Creator, Resources.",
-  "version": "1.0",
+  "version": "2.0",
   "permissions": ["storage"],
   "action": {
     "default_popup": "popup.html",
