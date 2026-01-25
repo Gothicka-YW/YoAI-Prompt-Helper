@@ -159,29 +159,76 @@ PRIORITY ORDER:
 1. Clean cartoon face with bold outlines
 2. Exact likeness
 3. Articulated monster-doll aesthetic`,
-  "male": `- Transform this male avatar in a semi-realistic manner.
-- Include the full figure, head-to-toe.
-- Correct the proportions; no bobbleheads, no Chibi.
-- Lengthen the legs.
-- Ensure accuracy of handheld items, hat, jewelry, and accessories.
-- Ensure accuracy of skin tone.
-- Image will show full body, including feet/shoes.
-- Add extra margin space to ensure the complete body is included.
-- Keep the texturing details.
-- No cropping.
-- Centered in the frame.
-- Transparent background.
-- Extend the image size to include full view of shoes.`,
-  "gothic": `- Transform this avatar in a Gothic Illustration Cartoon style with dark, dramatic tones and ornate detailing.
-- Image will show full body, including feet/shoes — no cutting off feet. Extend the image size to accommodate.
-- Use natural, human proportions.
-- Emphasize lace, velvet, corsets, layered fabrics, and fine linework with textured shading.
-- Apply chiaroscuro lighting for strong contrasts and a moody atmosphere.
-- Preserve all hair and facial features, including glossy lips, makeup, and beauty marks.
-- Ensure accuracy of handheld items, hat, jewelry, and accessories.
-- Preserve existing avatar pose; do not alter stance.
-- Keep the background transparent with no extra objects or scenery.
-- Preserve avatar’s recognizable features; clean edges.`,
+  "male": `Transform the provided YoWorld male avatar into a clean, semi-realistic illustration.
+
+IDENTITY LOCK (CRITICAL):
+Preserve all identifying characteristics exactly as provided, including facial structure, skin tone, eye shape and color, hair color and style, and all defining features.
+Do not alter age, ethnicity, gender expression, or core appearance.
+
+PROPORTIONS & ANATOMY:
+– correct proportions to look natural and human (no bobbleheads, no chibi)
+– lengthen the legs ONLY (do not change torso/head size)
+– keep the body full and volumetric (not flat)
+
+ITEMS & ACCESSORIES (CRITICAL):
+– ensure exact accuracy of handheld items, hat, jewelry, and accessories
+– do not add or remove props, accessories, or clothing
+
+TEXTURE & DETAIL:
+– keep the existing texturing details from the avatar (hair, clothing, materials)
+– semi-realistic shading is allowed, but avoid photoreal skin pores or realism creep
+
+COMPOSITION:
+This image must contain ONLY the avatar.
+– include the full figure head-to-toe, with shoes visible
+– add extra margin space and extend canvas as needed to avoid any cropping
+– centered in the frame
+
+BACKGROUND & SCENE RULES:
+– transparent background
+– no environment, scenery, floor, horizon, vignette, gradient, or extra objects
+
+PRIORITY ORDER:
+1. Exact likeness + skin tone
+2. Items/accessories accuracy
+3. Full-body framing (shoes visible), no cropping
+4. Natural proportions with subtly lengthened legs`,
+  "gothic": `Transform the provided YoWorld avatar into a Gothic Illustration Cartoon character with dark, dramatic tones and ornate detailing.
+
+IDENTITY LOCK (CRITICAL):
+Preserve all identifying characteristics exactly as provided, including facial structure, skin tone, eye shape and color, hair color and style, makeup, beauty marks, and all defining features.
+Do not alter age, ethnicity, gender expression, or core appearance.
+
+POSE & PROPORTIONS:
+– preserve the avatar’s existing pose and stance (no pose changes)
+– use natural, human proportions (no chibi, no bobbleheads)
+
+GOTHIC STYLE & MATERIALS:
+– emphasize lace, velvet, corsets, layered fabrics, and ornate detailing
+– fine linework and illustrated textured shading for depth (not photoreal)
+– apply chiaroscuro lighting: strong contrasts, moody shadows, dramatic form lighting
+– keep edges clean and readable
+
+ITEMS & ACCESSORIES (CRITICAL):
+– ensure exact accuracy of handheld items, hat, jewelry, and accessories
+– do not add or remove props, accessories, or clothing pieces
+
+COMPOSITION:
+This image must contain ONLY the avatar.
+– full body visible head to toe, including feet/shoes
+– extend canvas as needed to avoid cropping
+– centered composition
+
+BACKGROUND & SCENE RULES:
+– transparent background
+– no extra objects, scenery, environment, floor, horizon, vignette, or gradient
+– no shadows cast outside the avatar silhouette
+
+PRIORITY ORDER:
+1. Exact likeness (including hair, makeup, beauty marks) + skin tone
+2. Items/accessories accuracy
+3. Full-body framing (shoes visible), no cropping
+4. Gothic illustration style with chiaroscuro lighting and ornate fabric detail`,
   "glam": `Glamourize the provided YoWorld avatar.
 
 Create a full-body depiction in a clean, polished cartoon style consistent with YoWorld aesthetics.
@@ -213,18 +260,57 @@ No glow, haze, bloom, rim light, or lighting spill beyond the avatar silhouette.
 No added props, accessories, makeup, tattoos, or clothing changes unless already present on the avatar.
 
 Prioritize clarity, polish, and exact likeness.`,
-  "fashion": `- Transform this avatar with a high-fashion editorial look inspired by runway and couture styling.
-- Emphasize dramatic poses, bold makeup, sleek hair.
-- Present avant-garde details in clothing and accessories.
-- Preserve the avatar’s proportions, stance, and recognizable features.
-- Edit hair and clothing textures with strong highlights, shadows, and layered fabrics for depth.
-- Retain specific clothing pieces.
-- Ensure accuracy of handheld items, hat, jewelry, and accessories.
-- Retain skin tone and color of the presented avatar.
-- Lengthen the legs.
-- Ensure the result looks volumetric and full-bodied.
-- Include full body, head-to-toe, with shoes visible; extend canvas if needed to avoid cropping.
-- Transparent background, no props or scenery, keeping focus solely on the styled figure.`,
+  "fashion": `Transform the provided YoWorld avatar into a high-fashion editorial runway look.
+
+Create a couture-inspired, avant-garde fashion image while preserving the avatar’s recognizable identity.
+
+IDENTITY LOCK (CRITICAL):
+Preserve all identifying characteristics exactly as provided, including facial structure, body type, skin tone, eye shape and color, hair color and style, and all defining features.
+Do not alter age, ethnicity, gender expression, or core appearance.
+
+POSE & PROPORTIONS:
+– preserve the avatar’s original stance and pose (no pose changes)
+– maintain overall YoWorld proportions and scale (no chibi, no bobbleheads)
+– subtly lengthen the legs ONLY (do not change torso/head size)
+– keep the result volumetric, full-bodied, and 3D in form (not flat)
+
+HAIR & MAKEUP (EDITORIAL):
+– sleek, runway-ready hair rendering with clean shapes and controlled shine
+– bold, high-fashion makeup that enhances what is already present (do not change identity)
+– crisp edges and clean facial rendering (avoid realism creep)
+
+CLOTHING, ACCESSORIES & ITEMS (CRITICAL):
+– retain the specific clothing pieces exactly as shown; no replacing or removing items
+– retain and accurately render all handheld items, hat, jewelry, and accessories
+– do not add new props, extra accessories, or new objects
+– elevate the look through couture styling details WITHOUT changing what the items are
+
+TEXTURE, MATERIALS & DEPTH:
+– emphasize layered fabrics, tailored structure, and avant-garde styling details
+– add strong, controlled highlights and shadows to hair and clothing for depth
+– materials should look rich and dimensional, but remain illustrated/cartoon-based (not photoreal)
+
+COMPOSITION:
+This image must contain ONLY the avatar.
+– full body visible head to toe, including shoes
+– extend canvas as needed to avoid cropping
+– centered composition
+
+BACKGROUND & SCENE RULES:
+– transparent background
+– no props, scenery, environment, floor, horizon, sky, room, vignette, or gradient
+– no shadows cast outside the avatar silhouette
+
+GLOBAL STYLE RESTRICTIONS:
+– NO painterly textures or brush strokes
+– NO canvas grain, noise, or gritty overlays
+– NO glow spill, haze, bloom, or lighting outside the avatar silhouette
+
+PRIORITY ORDER:
+1. Exact likeness + skin tone + recognizable features
+2. Item/outfit accuracy (including handheld items, hat, jewelry, accessories)
+3. Full-body framing (shoes visible) + transparent background
+4. Editorial couture styling with strong depth and clean rendering`,
   "cyberpunk": `Transform the provided YoWorld avatar into a gritty cyberpunk–style cartoon illustration.
 
 Render the avatar in a bold, urban cyberpunk aesthetic:
@@ -281,11 +367,42 @@ PRIORITY ORDER:
 2. Preserved identity and proportions
 3. Gritty cyberpunk aesthetic through design, not texture
 4. Full-body clarity with transparent background`,
-  "futuristic": `- Transform this avatar with a clean, futuristic cartoon aesthetic: smooth fabrics, advanced sci-fi fashion, glowing accents.
-- Minimalist styling with sleek details and a high-tech appearance.
-- Preserve the avatar’s proportions, pose, and recognizable features.
-- Include full body, head-to-toe, with shoes visible: extend canvas if needed to avoid cropping.
-- Transparent background, no extra objects.`,
+  "futuristic": `Transform the provided YoWorld avatar into a clean futuristic cartoon illustration.
+
+Render a sleek, high-tech fashion look:
+– smooth fabrics and modern sci-fi silhouettes
+– minimalist, polished design language
+– controlled glowing accents (subtle, clean, and stylized)
+
+IDENTITY & PROPORTION LOCK:
+Preserve the avatar’s proportions, pose, and recognizable features exactly as provided, including facial structure, skin tone, eye shape and color, hair color and style, and defining details.
+Do not alter age, ethnicity, gender expression, or core appearance.
+
+STYLE & FINISH:
+– clean cartoon rendering with crisp edges
+– dimensional shading for form (no realism creep)
+– avoid gritty textures; keep surfaces sleek and readable
+
+COMPOSITION:
+This image must contain ONLY the avatar.
+– full body visible head to toe, including shoes
+– extend canvas as needed to avoid cropping
+– centered composition
+
+BACKGROUND & SCENE RULES:
+– transparent background
+– no extra objects, props, scenery, environment, floor, horizon, vignette, or gradient
+
+GLOBAL STYLE RESTRICTIONS:
+– NO painterly textures or brush strokes
+– NO canvas grain/noise overlays
+– NO glow spill, haze, bloom, or lighting outside the avatar silhouette
+
+PRIORITY ORDER:
+1. Exact likeness + skin tone
+2. Preserved pose/proportions
+3. Full-body framing (shoes visible) + transparent background
+4. Clean futuristic styling with sleek materials and controlled glow accents`,
   "dr_suess": `Transform the provided YoWorld avatar into a chaotic, surreal, Dr. Seuss–inspired cartoon character.
 
 Render the avatar in a whimsical, storybook-style cartoon aesthetic:
@@ -407,11 +524,42 @@ PRIORITY ORDER:
 2. Preserved clothing and accessories (unchanged)
 3. Clean cartoon rendering (non-painterly)
 4. Exact likeness and full-body clarity`,
-  "rustic": `- Transform this avatar with a soft rustic cartoon aesthetic: bougie bohemian, country farm living vibes.
-- Earthy tones, woven fabrics, cozy and natural accents.
-- Preserve the avatar’s proportions, pose, and recognizable features.
-- Include full body, head-to-toe, with shoes visible: extend canvas if needed to avoid cropping.
-- Transparent background, no extra objects.`
+  "rustic": `Transform the provided YoWorld avatar into a soft rustic cartoon illustration with bougie bohemian, country farm-living vibes.
+
+RUSTIC STYLE DIRECTION:
+– earthy, warm color palette
+– woven fabrics, cozy layers, natural accents
+– soft, friendly cartoon finish with gentle depth
+
+IDENTITY & PROPORTION LOCK:
+Preserve the avatar’s proportions, pose, and recognizable features exactly as provided, including facial structure, skin tone, eye shape and color, hair color and style, and defining details.
+Do not alter age, ethnicity, gender expression, or core appearance.
+
+CLOTHING & ITEMS:
+– retain all existing clothing pieces and accessories as shown
+– do not add extra props or objects
+– keep details recognizable and clean
+
+COMPOSITION:
+This image must contain ONLY the avatar.
+– full body visible head to toe, including shoes
+– extend canvas as needed to avoid cropping
+– centered composition
+
+BACKGROUND & SCENE RULES:
+– transparent background
+– no extra objects, scenery, environment, floor, horizon, vignette, or gradient
+
+GLOBAL STYLE RESTRICTIONS:
+– NO painterly textures or brush strokes
+– NO gritty noise overlays
+– NO lighting spill, haze, or bloom outside the avatar silhouette
+
+PRIORITY ORDER:
+1. Exact likeness + skin tone
+2. Preserved pose/proportions + clothing accuracy
+3. Full-body framing (shoes visible) + transparent background
+4. Rustic cozy aesthetic through color, fabric cues, and clean shading`
 };
 
 const BG_PRESETS = {
