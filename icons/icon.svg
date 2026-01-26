@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <!-- Slightly softened purple for readability on black -->
+    <linearGradient id="purple" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d6b6ff"/>
+      <stop offset="1" stop-color="#b98cff"/>
+    </linearGradient>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="
+        1 0 0 0 0
+        0 1 0 0 0
+        0 0 1 0 0
+        0 0 0 0.35 0" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Black circular badge -->
+  <circle cx="256" cy="256" r="236" fill="#000000"/>
+
+  <!-- Subtle ring to read better on dark browser chrome -->
+  <circle cx="256" cy="256" r="236" fill="none" stroke="#2a2236" stroke-width="10"/>
+
+  <!-- AI letters -->
+  <g filter="url(#softGlow)">
+    <text x="256" y="286"
+          text-anchor="middle"
+          font-family="Roboto, Arial, sans-serif"
+          font-size="210"
+          font-weight="800"
+          letter-spacing="-10"
+          fill="url(#purple)">AI</text>
+  </g>
+</svg>
