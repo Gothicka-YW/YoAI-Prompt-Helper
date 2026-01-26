@@ -3,7 +3,7 @@
 ## [2.0] - 2026-01-25
 
 ### Added
-- Theme selector (Resources tab) with multiple built-in themes: Dark, Valentine’s, Gothicka, Boho Chic, Fruity, Calico.
+- Theme selector (Resources tab) with multiple built-in themes: Dark, Valentine’s, Gothicka, Elven, Cats, Calico.
 - Calico theme background pattern support (kept readable via CSS variables).
 
 ### Changed

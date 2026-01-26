@@ -11,6 +11,17 @@
   /* Optional page pattern (Calico uses this) */
   --pagePattern: none;
   --pagePatternSize: auto;
+
+  /* Optional subtle texture image behind the rounded frame */
+  --frameTexture: none;
+  --frameTextureOpacity: 0;
+  --frameTextureBlend: normal;
+  --frameTextureRepeat: no-repeat;
+  --frameTextureSize: cover;
+  --frameTexturePosition: center;
+
+  /* Additional overlays to show texture across UI panels */
+  --surfaceTextureOpacity: 0;
 }
 
 :root[data-theme="valentines"]{
@@ -21,6 +32,10 @@
   --text:#fff0f6;
   --textDim:#ffd1e6;
   --border:#7a2948;
+
+  --frameTexture: url("ui-backgrounds/Valentine's.png");
+  --frameTextureOpacity: 0.14;
+  --surfaceTextureOpacity: 0.10;
 }
 
 :root[data-theme="gothicka"]{
@@ -31,6 +46,10 @@
   --text:#efe7ff;
   --textDim:#cbb6ff;
   --border:#3a2a55;
+
+  --frameTexture: url("ui-backgrounds/Gothicka.png");
+  --frameTextureOpacity: 0.16;
+  --surfaceTextureOpacity: 0.11;
 }
 
 :root[data-theme="boho"]{
@@ -41,16 +60,25 @@
   --text:#1d3b2a;
   --textDim:#3a5b48;
   --border:#c7b08c;
+
+  --frameTexture: url("ui-backgrounds/Elven.png");
+  --frameTextureOpacity: 0.12;
+  --surfaceTextureOpacity: 0.09;
 }
 
 :root[data-theme="fruity"]{
-  --bg:#ffe26a;
-  --bgSoft:#fff0a6;
-  --panel:#fff8d1;
-  --accent:#ff3d7f;
-  --text:#4a1740;
-  --textDim:#7a2f67;
-  --border:#e6b84b;
+  /* Cats: pastel yellow base + medium pink accent */
+  --bg:#fff3a6;
+  --bgSoft:#fff0c7;
+  --panel:#fff9e4;
+  --accent:#ff5aa5;
+  --text:#3a1630;
+  --textDim:#6a365b;
+  --border:#e2c57a;
+
+  --frameTexture: url("ui-backgrounds/Cats.png");
+  --frameTextureOpacity: 0.12;
+  --surfaceTextureOpacity: 0.09;
 }
 
 :root[data-theme="calico"]{
@@ -62,13 +90,13 @@
   --textDim:#5a4437;
   --border:#d1b494;
 
-  /* Abstract calico-ish patches (lightweight, readable) */
-  --pagePattern:
-    radial-gradient(circle at 20px 24px, rgba(30,20,14,0.18) 0 18px, transparent 19px),
-    radial-gradient(circle at 92px 64px, rgba(205,105,46,0.22) 0 22px, transparent 23px),
-    radial-gradient(circle at 44px 102px, rgba(30,20,14,0.10) 0 14px, transparent 15px),
-    radial-gradient(circle at 120px 22px, rgba(245,235,217,0.85) 0 28px, transparent 29px);
-  --pagePatternSize: 160px 140px;
+  --frameTexture: url("ui-backgrounds/Calico.png");
+  --frameTextureOpacity: 0.14;
+  --surfaceTextureOpacity: 0.10;
+
+  /* When using an image texture, keep the CSS patch pattern off to avoid visual noise */
+  --pagePattern: none;
+  --pagePatternSize: auto;
 }
 
 html, body{
@@ -84,11 +112,96 @@ body{ color:var(--text); }
     var(--pagePattern, none),
     linear-gradient(180deg, var(--bg) 0%, var(--panel) 100%);
   background-size: var(--pagePatternSize, auto), auto;
+  position: relative;
+}
+
+/* Subtle texture overlay (theme-specific) */
+.popup-frame::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius: inherit;
+  background-image: var(--frameTexture);
+  background-repeat: var(--frameTextureRepeat);
+  background-size: var(--frameTextureSize);
+  background-position: var(--frameTexturePosition);
+  opacity: var(--frameTextureOpacity);
+  mix-blend-mode: var(--frameTextureBlend);
+  pointer-events:none;
+  z-index:0;
+}
+
+/* Keep all UI content above the texture overlay */
+.popup-frame > *{
+  position: relative;
+  z-index: 1;
+}
+
+/* Show the texture across more surface area by overlaying it inside panels */
+.header, .footer, .content{
+  position: relative;
+}
+
+.header::before, .footer::before, .content::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image: var(--frameTexture);
+  background-repeat: var(--frameTextureRepeat);
+  background-size: var(--frameTextureSize);
+  background-position: var(--frameTexturePosition);
+  opacity: var(--surfaceTextureOpacity);
+  mix-blend-mode: var(--frameTextureBlend);
+  pointer-events:none;
+  z-index:0;
+}
+
+.header > *, .footer > *, .content > *{
+  position: relative;
+  z-index: 1;
 }
 .header,.footer{background:var(--bgSoft);border-color:var(--border)}
 .tabs .tab-button{color:var(--accent);background:var(--bgSoft);border-color:var(--border)}
 .tabs .tab-button.active{background:var(--accent);color:#111;border-color:var(--accent)}
 .content,.card,.output,.select,textarea,select,input{background:var(--panel);border-color:var(--border);color:var(--text)}
+
+/* Let the frame texture show through (fallbacks) */
+.content{background: rgba(0,0,0,0.10);}
+:root[data-theme="valentines"] .content{background: rgba(20,6,11,0.90);}
+:root[data-theme="gothicka"] .content{background: rgba(10,10,18,0.90);}
+:root[data-theme="boho"] .content{background: rgba(255,246,232,0.88);}
+:root[data-theme="fruity"] .content{background: rgba(255,249,228,0.88);}
+:root[data-theme="calico"] .content{background: rgba(255,247,235,0.88);}
+
+:root[data-theme="valentines"] .select,
+:root[data-theme="valentines"] .input,
+:root[data-theme="valentines"] textarea,
+:root[data-theme="valentines"] select,
+:root[data-theme="valentines"] input{background: rgba(58,15,28,0.88);}
+
+:root[data-theme="gothicka"] .select,
+:root[data-theme="gothicka"] .input,
+:root[data-theme="gothicka"] textarea,
+:root[data-theme="gothicka"] select,
+:root[data-theme="gothicka"] input{background: rgba(13,13,20,0.86);}
+
+:root[data-theme="boho"] .select,
+:root[data-theme="boho"] .input,
+:root[data-theme="boho"] textarea,
+:root[data-theme="boho"] select,
+:root[data-theme="boho"] input{background: rgba(242,228,204,0.85);}
+
+:root[data-theme="fruity"] .select,
+:root[data-theme="fruity"] .input,
+:root[data-theme="fruity"] textarea,
+:root[data-theme="fruity"] select,
+:root[data-theme="fruity"] input{background: rgba(255,240,199,0.85);}
+
+:root[data-theme="calico"] .select,
+:root[data-theme="calico"] .input,
+:root[data-theme="calico"] textarea,
+:root[data-theme="calico"] select,
+:root[data-theme="calico"] input{background: rgba(249,237,217,0.85);}
 .label,h1,h2{color:var(--accent)}
 
 .popup-frame{border:1px solid var(--border)}

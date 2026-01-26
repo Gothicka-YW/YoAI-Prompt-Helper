@@ -32,6 +32,8 @@ A lightweight Chrome Extension (Manifest V3) that helps YoWorld players generate
 - Theme is stored in `localStorage` under `yoprompt_theme`.
 - Themes are defined via CSS variables in `theme.css` and applied via `data-theme` on the document root.
 
+Built-in themes: Dark, Valentine’s, Gothicka, Elven, Cats, Calico.
+
 ## Development
 
 - No build step (plain HTML/CSS/JS).
