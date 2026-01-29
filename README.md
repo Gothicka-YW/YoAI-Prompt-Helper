@@ -39,6 +39,10 @@ Built-in themes: Dark, Valentine’s, Gothicka, Elven, Cats, Calico.
 - No build step (plain HTML/CSS/JS).
 - After changes, reload the extension in `chrome://extensions`.
 
+## Privacy
+
+See [PRIVACY_POLICY.md](PRIVACY_POLICY.md).
+
 ## Credits
 
 Community Edition — Created by Gothicka
