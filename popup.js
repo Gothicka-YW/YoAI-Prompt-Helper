@@ -356,17 +356,21 @@ PRIORITY ORDER:
 2. Item/outfit accuracy (including handheld items)
 3. Full-body framing (shoes visible) + transparent background
 4. Bold Pop Art poster finish with clean halftone treatment`,
-  "pixel_art": `Transform the provided YoWorld avatar into high-resolution pixel art (sprite-style) while preserving exact identity.
+  "pixel_art": `Transform the provided YoWorld avatar into TRUE pixel art (sprite-style) while preserving exact identity.
 
 IDENTITY LOCK (CRITICAL):
 Preserve all identifying characteristics exactly as provided, including facial structure, body type, proportions, skin tone, eye shape and color, hair color and style, makeup (if present), beauty marks, and all defining features.
 Do not alter age, ethnicity, gender expression, or core appearance.
 
-PIXEL ART STYLE (CRISP):
-– render using clearly defined pixels with sharp edges
-– no blur, no smudging, no soft gradients (use controlled dithering only if needed)
+PIXEL ART STYLE (CRITICAL):
+– render on a fixed pixel grid at LOW native resolution (e.g., 128×256 or 160×320)
+– then upscale 6×–10× using NEAREST-NEIGHBOR only (no smoothing, no interpolation)
+– each “pixel” must be clearly visible (blocky, crisp squares)
+– NO blur, NO smudging, NO soft gradients
+– shading must be done with limited palette + optional controlled dithering (not smooth blending)
 – keep the silhouette and outfit details readable at pixel scale
-– faithful, consistent color choices (avoid noisy palettes)
+– use a limited, cohesive color palette (avoid noisy ramps)
+– optional: 1–2 px outline is allowed if it improves readability
 
 ITEMS & ACCESSORIES (CRITICAL):
 – ensure exact accuracy of handheld items, hat, jewelry, and accessories
@@ -387,7 +391,9 @@ GLOBAL STYLE RESTRICTIONS:
 – NO painterly textures or brush strokes
 – NO canvas grain, noise, or gritty overlays
 – NO glow spill, haze, bloom, or lighting outside the avatar silhouette
-– NO anti-aliased edges that look blurry; keep pixels crisp
+– NO anti-aliasing, NO sub-pixel smoothing, NO motion blur, NO depth of field
+– NO photorealism, NO 3D rendering, NO cinematic lighting
+– NO smooth shading; keep hard pixel clusters
 
 PRIORITY ORDER:
 1. Exact likeness + item/outfit accuracy
@@ -800,6 +806,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (key === 'dr_suess') return 'Dr. Suess';
     if (key === '3d') return '3D (Clay)';
     if (key === 'monster_high') return 'Monster High';
+    if (key === 'pixel_art') return 'Pixel Art';
+    if (key === 'pop_art') return 'Pop Art';
     return key.charAt(0).toUpperCase() + key.slice(1).replace(/_/g, ' ');
   }
 
