@@ -206,11 +206,6 @@ body{ color:var(--text); }
 
 .popup-frame{border:1px solid var(--border)}
 
-/* Prevent layout shift between tabs */
-.popup-frame{max-height: none;}
-.content{display:block; padding:12px;}
-.tab-content{display:none; overflow-y:auto; padding-right:6px;}
-.tab-content.active{display:block;}
 /* thin scrollbar */
 .tab-content::-webkit-scrollbar{width:8px}
 .tab-content::-webkit-scrollbar-thumb{background: var(--textDim); border-radius:6px}
@@ -226,14 +221,6 @@ body{ color:var(--text); }
 .btn.coffee:hover{filter:brightness(1.05);}
 .bug-report{text-align:center; margin:4px 0 12px 0;}
 .bug-report a{color:var(--text); text-decoration:underline;}
-
-/* Unified popup height to prevent tab jumping */
-.popup-frame{max-height: none;}
-.content{display:block; padding:12px;}
-.tab-content{display:none; overflow-y:auto; height: 100%; padding-right:6px;}
-.tab-content.active{display:block;}
-.tab-content::-webkit-scrollbar{width:8px}
-.tab-content::-webkit-scrollbar-thumb{background: var(--textDim); border-radius:6px}
 
 .bug-report{ text-align:center; margin:6px 0 12px 0; }
 .bug-report a{ color: var(--text); text-decoration: underline; cursor: pointer; }

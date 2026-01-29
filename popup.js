@@ -825,22 +825,59 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // --- Theme Selector (Resources tab, applies to entire popup) ---
   function applyTheme(themeKey) {
-    const key = themeKey || 'dark';
+    const key = themeKey || 'calico';
     document.documentElement.setAttribute('data-theme', key);
   }
 
   const themeSelect = document.getElementById('theme-select');
-  const savedTheme = localStorage.getItem('yoprompt_theme') || 'dark';
+  const savedTheme = localStorage.getItem('yoprompt_theme') || 'calico';
   applyTheme(savedTheme);
   if (themeSelect) {
     themeSelect.value = savedTheme;
     themeSelect.addEventListener('change', () => {
-      const val = themeSelect.value || 'dark';
+      const val = themeSelect.value || 'calico';
       localStorage.setItem('yoprompt_theme', val);
       applyTheme(val);
+      // Theme changes can slightly affect layout (fonts/background rendering), so re-lock height.
+      requestAnimationFrame(() => lockPopupHeightToAviPresets());
     });
     // If form-state restore changes the select after initial paint, re-apply once.
     requestAnimationFrame(() => applyTheme(themeSelect.value || savedTheme));
+  }
+
+  // --- Popup Height Lock (match Avi Presets tab) ---
+  // Chrome extension popups size to their content; if tabs have different content heights
+  // the popup will visually "jump". We lock the content area height to whatever the Avi
+  // Presets tab would naturally need.
+  function lockPopupHeightToAviPresets() {
+    const content = document.querySelector('.content');
+    const presets = document.getElementById('presets');
+    if (!content || !presets) return;
+
+    // Clone the Avi Presets section so we can measure it even if another tab is active.
+    const clone = presets.cloneNode(true);
+    clone.classList.add('active');
+    clone.style.display = 'block';
+    clone.style.position = 'absolute';
+    clone.style.visibility = 'hidden';
+    clone.style.pointerEvents = 'none';
+    clone.style.left = '-99999px';
+    clone.style.top = '0';
+    clone.style.height = 'auto';
+    clone.style.maxHeight = 'none';
+
+    content.appendChild(clone);
+    const cloneRect = clone.getBoundingClientRect();
+    content.removeChild(clone);
+
+    const cs = window.getComputedStyle(content);
+    const padTop = parseFloat(cs.paddingTop) || 0;
+    const padBottom = parseFloat(cs.paddingBottom) || 0;
+    const desired = Math.ceil(cloneRect.height + padTop + padBottom);
+
+    if (desired > 0) {
+      content.style.height = desired + 'px';
+    }
   }
 
   // Bug report email copy
@@ -883,6 +920,12 @@ document.addEventListener('DOMContentLoaded', function() {
       if (contentEl) contentEl.classList.toggle('mypresets-active', btn.dataset.tab === 'mypresets');
     });
   });
+
+  // Lock once after initial layout + once after fonts settle.
+  requestAnimationFrame(() => lockPopupHeightToAviPresets());
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(() => lockPopupHeightToAviPresets()).catch(() => {});
+  }
 
   // --- Form State Persistence (all tabs) ---
   // Save on input/change, restore on load

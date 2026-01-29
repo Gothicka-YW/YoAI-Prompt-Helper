@@ -1,10 +1,6 @@
 .content, .tab-content {
   scrollbar-gutter: stable both-edges;
 }
-#mypresets {
-  padding-left: 12px !important;
-  padding-right: 12px !important;
-}
 /* Remove extra space/box above My Presets content */
 #mypresets h2 {
   margin-top: 0 !important;
@@ -12,13 +8,10 @@
 }
 /* Fix My Presets tab top spacing */
 #mypresets {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
   padding-top: 0 !important;
   margin-top: 0 !important;
-}
-.tab-content, .tab-content.active {
-  min-height: 0 !important;
-  height: auto !important;
-  padding-top: 0 !important;
 }
 #mypresets h2, #mypresets .tab-title, #mypresets .section-title {
   margin-top: 0 !important;
@@ -105,11 +98,14 @@ h2{
   border-top:1px solid var(--border);
   border-bottom:1px solid var(--border);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 .tab-content {
   display: none;
   overflow-y: auto;
-  max-height: 380px;
+  flex: 1 1 auto;
+  min-height: 0;
 }
 .tab-content.active {
   display: block;
