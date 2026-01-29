@@ -54,4 +54,4 @@ This extension is not directed to children under 13 and does not knowingly colle
 If this policy changes, the updated version will be published in this repository.
 
 ## Contact
-For questions or concerns, please open an issue on the GitHub repository where you obtained this extension.
+For questions or concerns, please open an issue on the GitHub repository where you obtained this extension or email gothicka.ywa@gmail.com.
