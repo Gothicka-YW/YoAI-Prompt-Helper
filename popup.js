@@ -229,37 +229,171 @@ PRIORITY ORDER:
 2. Items/accessories accuracy
 3. Full-body framing (shoes visible), no cropping
 4. Gothic illustration style with chiaroscuro lighting and ornate fabric detail`,
-  "glam": `Glamourize the provided YoWorld avatar.
+  "glam": `Glamourize the provided YoWorld avatar into a clean, polished, high-clarity cartoon rendering.
 
-Create a full-body depiction in a clean, polished cartoon style consistent with YoWorld aesthetics.
-Retain all identifying characteristics exactly as provided, including facial structure, skin tone, eye shape, eye color, hair color, hairstyle, proportions, body type, and all defining features.
+IDENTITY LOCK (CRITICAL):
+Preserve all identifying characteristics exactly as provided, including facial structure, body type, proportions, skin tone, eye shape and color, hair color and style, makeup (if present), beauty marks, and all defining features.
 Do not alter age, ethnicity, gender expression, or core appearance.
 
-This image must contain ONLY the avatar.
-Do NOT generate any background, environment, setting, floor, ground plane, horizon, sky, room, gradient, vignette, light field, or atmospheric elements.
-The avatar must exist in complete isolation with no spatial or environmental context.
+POSE & PROPORTIONS:
+– preserve the avatar’s original stance and pose (no pose changes)
+– maintain overall YoWorld proportions and scale (no chibi, no bobbleheads)
+– keep the result clean and readable with a crisp silhouette
 
-Enhance with subtle glamour styling only:
+ITEMS & ACCESSORIES (CRITICAL):
+– ensure exact accuracy of handheld items, hat, jewelry, and accessories
+– do not add or remove props, accessories, makeup, tattoos, or clothing items
+
+GLAM STYLE & FINISH:
 – smooth, flat-to-soft shading
 – clean vector-like or cel-shaded surfaces
-– crisp, well-defined edges
+– crisp edges and tidy linework (if linework is present)
 – controlled highlights applied to the avatar only
 – balanced, even color saturation
+– no “realism creep” (keep it illustrated/cartoon-based)
 
-STRICT STYLE CONSTRAINTS:
-– NO painterly textures
-– NO brush strokes
-– NO canvas grain
+COMPOSITION:
+This image must contain ONLY the avatar.
+– full body visible head to toe, including shoes
+– extend canvas as needed to avoid any cropping
+– centered composition
+
+BACKGROUND & SCENE RULES:
+– transparent background
+– no environment, scenery, floor, horizon, sky, room, vignette, gradient, or extra objects
+– no shadows cast outside the avatar silhouette
+
+GLOBAL STYLE RESTRICTIONS:
+– NO painterly textures or brush strokes
+– NO canvas grain, noise, or gritty overlays
 – NO watercolor, oil paint, pastel, chalk, or acrylic effects
-– NO sketch lines or rough linework
 – NO soft-focus blur or artistic smudging
+– NO glow spill, haze, bloom, rim light, or lighting outside the avatar silhouette
 
-Pose should be natural and confident, fully visible head to toe.
-No shadows cast outside the avatar.
-No glow, haze, bloom, rim light, or lighting spill beyond the avatar silhouette.
-No added props, accessories, makeup, tattoos, or clothing changes unless already present on the avatar.
+PRIORITY ORDER:
+1. Exact likeness (face, hair, skin tone, makeup/beauty marks if present)
+2. Item/outfit accuracy (including handheld items, hat, jewelry, accessories)
+3. Full-body framing (shoes visible) + transparent background
+4. Clean, polished glam finish with controlled highlights`,
+  "powerpuff": `Transform the provided YoWorld avatar into a Powerpuff-style cartoon character.
 
-Prioritize clarity, polish, and exact likeness.`,
+IDENTITY LOCK (CRITICAL):
+Preserve all identifying characteristics exactly as provided, including facial structure, body type, proportions, skin tone, eye shape and color, hair color and style, makeup (if present), beauty marks, and all defining features.
+Do not alter age, ethnicity, gender expression, or core appearance.
+
+PROPORTIONS & SHAPE (IMPORTANT):
+– keep overall YoWorld proportions and scale (NO chibi, NO bobbleheads)
+– simplify shapes into clean, readable forms with a strong silhouette
+– keep hands/feet/head size natural to YoWorld (do not exaggerate anatomy)
+
+FACIAL RENDERING (POWERPUFF-LIKE):
+– bold, clean cartoon look
+– simplified facial features with crisp outlines
+– large, expressive eyes are allowed ONLY if they do not change overall YoWorld head size or distort the likeness
+– flat-to-minimal shading
+
+ITEMS & ACCESSORIES (CRITICAL):
+– ensure exact accuracy of handheld items, hat, jewelry, and accessories
+– do not add or remove props, accessories, makeup, tattoos, or clothing items
+
+COMPOSITION:
+This image must contain ONLY the avatar.
+– full body visible head to toe, including shoes
+– extend canvas as needed to avoid any cropping
+– centered composition
+
+BACKGROUND & SCENE RULES:
+– transparent background
+– no environment, scenery, floor, horizon, sky, room, vignette, gradient, or extra objects
+– no shadows cast outside the avatar silhouette
+
+GLOBAL STYLE RESTRICTIONS:
+– NO painterly textures or brush strokes
+– NO canvas grain, noise, or gritty overlays
+– NO watercolor, oil paint, pastel, chalk, or acrylic effects
+– NO glow spill, haze, bloom, or lighting outside the avatar silhouette
+
+PRIORITY ORDER:
+1. Exact likeness + preserved YoWorld proportions
+2. Item/outfit accuracy (including handheld items)
+3. Full-body framing (shoes visible) + transparent background
+4. Clean Powerpuff-style simplification with crisp edges`,
+  "pop_art": `Transform the provided YoWorld avatar into a bold Pop Art / halftone poster illustration.
+
+IDENTITY LOCK (CRITICAL):
+Preserve all identifying characteristics exactly as provided, including facial structure, body type, proportions, skin tone, eye shape and color, hair color and style, makeup (if present), beauty marks, and all defining features.
+Do not alter age, ethnicity, gender expression, or core appearance.
+
+POP ART STYLE (POSTER / SCREENPRINT):
+– bold, graphic shapes and strong outlines
+– limited, high-contrast color palette (poster-like)
+– comic-style shading and color blocking
+– controlled halftone dots are allowed (clean and intentional, not gritty noise)
+
+ITEMS & ACCESSORIES (CRITICAL):
+– ensure exact accuracy of handheld items, hat, jewelry, and accessories
+– do not add or remove props, accessories, makeup, tattoos, or clothing items
+
+COMPOSITION:
+This image must contain ONLY the avatar.
+– full body visible head to toe, including shoes
+– extend canvas as needed to avoid any cropping
+– centered composition
+
+BACKGROUND & SCENE RULES:
+– transparent background
+– no environment, scenery, floor, horizon, sky, room, vignette, gradient, or extra objects
+– no shadows cast outside the avatar silhouette
+
+GLOBAL STYLE RESTRICTIONS:
+– NO painterly textures or brush strokes
+– NO canvas grain, random noise, or dirty overlays (halftone dots must be clean)
+– NO watercolor, oil paint, pastel, chalk, or acrylic effects
+– NO glow spill, haze, bloom, or lighting outside the avatar silhouette
+
+PRIORITY ORDER:
+1. Exact likeness + proportions
+2. Item/outfit accuracy (including handheld items)
+3. Full-body framing (shoes visible) + transparent background
+4. Bold Pop Art poster finish with clean halftone treatment`,
+  "pixel_art": `Transform the provided YoWorld avatar into high-resolution pixel art (sprite-style) while preserving exact identity.
+
+IDENTITY LOCK (CRITICAL):
+Preserve all identifying characteristics exactly as provided, including facial structure, body type, proportions, skin tone, eye shape and color, hair color and style, makeup (if present), beauty marks, and all defining features.
+Do not alter age, ethnicity, gender expression, or core appearance.
+
+PIXEL ART STYLE (CRISP):
+– render using clearly defined pixels with sharp edges
+– no blur, no smudging, no soft gradients (use controlled dithering only if needed)
+– keep the silhouette and outfit details readable at pixel scale
+– faithful, consistent color choices (avoid noisy palettes)
+
+ITEMS & ACCESSORIES (CRITICAL):
+– ensure exact accuracy of handheld items, hat, jewelry, and accessories
+– do not add or remove props, accessories, makeup, tattoos, or clothing items
+
+COMPOSITION:
+This image must contain ONLY the avatar.
+– full body visible head to toe, including shoes
+– extend canvas as needed to avoid any cropping
+– centered composition
+
+BACKGROUND & SCENE RULES:
+– transparent background
+– no environment, scenery, floor, horizon, sky, room, vignette, gradient, or extra objects
+– no shadows cast outside the avatar silhouette
+
+GLOBAL STYLE RESTRICTIONS:
+– NO painterly textures or brush strokes
+– NO canvas grain, noise, or gritty overlays
+– NO glow spill, haze, bloom, or lighting outside the avatar silhouette
+– NO anti-aliased edges that look blurry; keep pixels crisp
+
+PRIORITY ORDER:
+1. Exact likeness + item/outfit accuracy
+2. Full-body framing (shoes visible) + transparent background
+3. Crisp pixel readability and clean silhouette
+4. Controlled dithering only when necessary`,
   "fashion": `Transform the provided YoWorld avatar into a high-fashion editorial runway look.
 
 Create a couture-inspired, avant-garde fashion image while preserving the avatar’s recognizable identity.
