@@ -159,6 +159,72 @@ PRIORITY ORDER:
 1. Clean cartoon face with bold outlines
 2. Exact likeness
 3. Articulated monster-doll aesthetic`,
+  "photorealism": `Transform the provided YoWorld avatar into a photorealistic human depiction.
+
+Render the avatar as a true-to-life photographic image with FULL BODY visibility:
+– realistic human anatomy and proportions
+– natural skin appearance with real-world detail
+– accurate lighting and depth consistent with studio photography
+– believable materials, surfaces, and fabric behavior
+
+FULL BODY REQUIREMENT (CRITICAL):
+– the avatar must be fully visible from head to toe
+– feet or shoes must be clearly shown
+– no cropping at the ankles, knees, waist, shoulders, or head
+– extend the canvas as needed to include the entire figure
+– framing must prioritize full-body visibility over facial close-up
+
+IDENTITY LOCK (CRITICAL):
+Preserve all identifying characteristics exactly as provided, including facial structure, skin tone, eye shape and color, hair color and style, body type, proportions, and defining features.
+Do not alter age, ethnicity, gender expression, weight, or core appearance.
+No beautification, reshaping, or idealization beyond realistic photography.
+
+FACIAL & SKIN RENDERING:
+– natural skin texture with pores and subtle variation
+– realistic facial geometry and expression
+– no beauty smoothing, airbrushing, or cosmetic blur
+– no stylized makeup unless already present
+– lighting must reveal form without exaggeration
+
+BODY & PROPORTIONS:
+– maintain the avatar’s original body shape and stance
+– no slimming, elongation, or distortion
+– realistic muscle tone and volume
+– body should feel physically grounded and proportional
+
+CLOTHING & ITEMS:
+– retain all clothing, handheld items, hats, jewelry, and accessories exactly as shown
+– fabrics should behave realistically (folds, weight, seams)
+– no redesign or stylization of garments
+
+CAMERA & FRAMING:
+– neutral, eye-level or slightly lowered camera angle suitable for full-body studio photography
+– correct perspective and scale
+– centered, clean framing
+
+BACKGROUND & SCENE RULES:
+– no background, environment, floor, horizon, sky, room, or scenery
+– no cinematic or narrative context
+– output must be transparent or plain with no spatial context
+
+LIGHTING RULES:
+– realistic studio lighting applied to the avatar only
+– no dramatic cinematic lighting
+– no glow, bloom, haze, rim light, or lens effects
+– no shadows cast outside the avatar silhouette
+
+GLOBAL RESTRICTIONS:
+– NO painterly textures or artistic effects
+– NO illustration or cartoon stylization
+– NO beauty filters or editorial retouching
+– NO film grain overlays
+– NO added props or objects
+
+PRIORITY ORDER:
+1. FULL BODY, head-to-toe visibility
+2. Exact likeness and realistic anatomy
+3. True photographic realism
+4. Clean isolation with no background`,
   "male": `Transform the provided YoWorld male avatar into a clean, semi-realistic illustration.
 
 IDENTITY LOCK (CRITICAL):
